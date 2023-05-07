@@ -1,77 +1,137 @@
 @extends('layouts.app')
 
 @section('content')
-<div class="container">
-    <div class="row justify-content-center">
-        <div class="col-md-8">
-            <div class="card">
-                <div class="card-header">{{ __('Register') }}</div>
+    <div id="register">
+        <section class="section-1">
+            <div class="container">
+                <div class="row justify-content-center">
+                    <div class="col-md-5">
 
-                <div class="card-body">
-                    <form method="POST" action="{{ route('register') }}">
-                        @csrf
-
-                        <div class="row mb-3">
-                            <label for="name" class="col-md-4 col-form-label text-md-end">{{ __('Name') }}</label>
-
-                            <div class="col-md-6">
-                                <input id="name" type="text" class="form-control @error('name') is-invalid @enderror" name="name" value="{{ old('name') }}" required autocomplete="name" autofocus>
-
-                                @error('name')
-                                    <span class="invalid-feedback" role="alert">
-                                        <strong>{{ $message }}</strong>
-                                    </span>
-                                @enderror
+                        <form action="{{ route('register') }}" class="reg-form">
+                            @csrf
+                            <div class="form-caption">Register Form</div>
+                            <div class="mb-3">
+                                <input type="email" class="form-control" placeholder="Enter your email address">
                             </div>
-                        </div>
-
-                        <div class="row mb-3">
-                            <label for="email" class="col-md-4 col-form-label text-md-end">{{ __('Email Address') }}</label>
-
-                            <div class="col-md-6">
-                                <input id="email" type="email" class="form-control @error('email') is-invalid @enderror" name="email" value="{{ old('email') }}" required autocomplete="email">
-
-                                @error('email')
-                                    <span class="invalid-feedback" role="alert">
-                                        <strong>{{ $message }}</strong>
-                                    </span>
-                                @enderror
+                            <div class="row mb-3">
+                                <div class="col-6">
+                                    <input type="password" class="form-control" placeholder="Enter your password">
+                                </div>
+                                <div class="col-6">
+                                    <input type="password" class="form-control" placeholder="Confirm your password">
+                                </div>
                             </div>
-                        </div>
-
-                        <div class="row mb-3">
-                            <label for="password" class="col-md-4 col-form-label text-md-end">{{ __('Password') }}</label>
-
-                            <div class="col-md-6">
-                                <input id="password" type="password" class="form-control @error('password') is-invalid @enderror" name="password" required autocomplete="new-password">
-
-                                @error('password')
-                                    <span class="invalid-feedback" role="alert">
-                                        <strong>{{ $message }}</strong>
-                                    </span>
-                                @enderror
+                            <div class="mb-3">
+                                <select id="acc_type" class="form-select" onchange="changeFields()">
+                                    <option selected>Select the Account Type</option>
+                                    <option value="1">Common User</option>
+                                    <option value="2">Mentor</option>
+                                    <option value="3">Company</option>
+                                </select>
                             </div>
-                        </div>
 
-                        <div class="row mb-3">
-                            <label for="password-confirm" class="col-md-4 col-form-label text-md-end">{{ __('Confirm Password') }}</label>
-
-                            <div class="col-md-6">
-                                <input id="password-confirm" type="password" class="form-control" name="password_confirmation" required autocomplete="new-password">
+                            <div class="collapse" id="collapseUser">
+                                <div class="row mb-3">
+                                    <div class="col-6">
+                                        <input type="text" class="form-control" placeholder="Enter your Name">
+                                    </div>
+                                    <div class="col-6">
+                                        <input type="text" class="form-control" placeholder="Enter your Age">
+                                    </div>
+                                </div>
+                                <div class="mb-3">
+                                    <input type="text" class="form-control" placeholder="Enter your Address">
+                                </div>
+                                <div class="row mb-3">
+                                    <div class="col-6">
+                                        <input type="text" class="form-control" placeholder="Enter your Mobile">
+                                    </div>
+                                    <div class="col-6">
+                                        <select class="form-select">
+                                            <option selected>Select your District</option>
+                                            <option value="1">Common User</option>
+                                            <option value="2">Mentor</option>
+                                            <option value="3">Company</option>
+                                        </select>
+                                    </div>
+                                </div>
                             </div>
-                        </div>
-
-                        <div class="row mb-0">
-                            <div class="col-md-6 offset-md-4">
-                                <button type="submit" class="btn btn-primary">
-                                    {{ __('Register') }}
-                                </button>
+                            <div class="collapse" id="collapseMentor">
+                                <div class="row mb-3">
+                                    <div class="col-6">
+                                        <input type="text" class="form-control" placeholder="Enter your Name">
+                                    </div>
+                                    <div class="col-6">
+                                        <input type="text" class="form-control" placeholder="Enter your Age">
+                                    </div>
+                                </div>
+                                <div class="mb-3">
+                                    <input type="text" class="form-control" placeholder="Enter your Address">
+                                </div>
+                                <div class="row mb-3">
+                                    <div class="col-6">
+                                        <input type="text" class="form-control" placeholder="Enter your Mobile">
+                                    </div>
+                                    <div class="col-6">
+                                        <select class="form-select">
+                                            <option selected>Select your District</option>
+                                            <option value="1">Common User</option>
+                                            <option value="2">Mentor</option>
+                                            <option value="3">Company</option>
+                                        </select>
+                                    </div>
+                                </div>
                             </div>
-                        </div>
-                    </form>
+                            <div class="collapse" id="collapseCompany">
+                                <div class="mb-3">
+                                    <input type="text" class="form-control" placeholder="Enter your Comapany Name">
+                                </div>
+                                <div class="mb-3">
+                                    <input type="text" class="form-control" placeholder="Enter your Comapany Address">
+                                </div>
+                                <div class="mb-3">
+                                    <input type="text" class="form-control"
+                                        placeholder="Enter your Comapany Description">
+                                </div>
+                                <div class="row mb-3">
+                                    <div class="col-6">
+                                        <input type="text" class="form-control" placeholder="Enter Company Mobile">
+                                    </div>
+                                    <div class="col-6">
+                                        <select class="form-select">
+                                            <option selected>Select your District</option>
+                                            <option value="1">Common User</option>
+                                            <option value="2">Mentor</option>
+                                            <option value="3">Company</option>
+                                        </select>
+                                    </div>
+                                </div>
+                            </div>
+                            <div>
+                                <input type="submit" class="btn btn-primary w-100" value="REGISTER">
+                            </div>
+                        </form>
+                    </div>
                 </div>
             </div>
-        </div>
+        </section>
     </div>
-</div>
+    <script>
+        function changeFields() {
+            let selection = document.getElementById("acc_type").value;
+            if (selection == 1) {
+                $('#collapseMentor').collapse('hide');
+                $('#collapseCompany').collapse('hide');
+                $('#collapseUser').collapse('show');
+            } else if (selection == 2) {
+                $('#collapseUser').collapse('hide');
+                $('#collapseCompany').collapse('hide');
+                $('#collapseMentor').collapse('show');
+            } else if (selection == 3) {
+                $('#collapseUser').collapse('hide');
+                $('#collapseMentor').collapse('hide');
+                $('#collapseCompany').collapse('show');
+            }
+        }
+    </script>
 @endsection
