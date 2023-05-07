@@ -21,9 +21,20 @@
                     <a class="nav-link" href="#">Events</a>
                 </li>
             </ul>
-            <div class="d-flex">
-                <a class="btn btn-primary" href="login">Login</a>
-            </div>
+            @if (Auth::user() != null)
+                <div class="d-flex">
+                    <form action="{{ route('logout') }}" method="post">
+                        @csrf
+                        <button type="submit" class="btn btn-primary">Logout</button>
+                    </form>
+
+                </div>
+            @else
+                <div class="d-flex">
+                    <a class="btn btn-primary" href="{{ route('login') }}">Login</a>
+                </div>
+            @endif
+
         </div>
     </div>
 </nav>
