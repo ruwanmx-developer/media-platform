@@ -40,6 +40,21 @@
                     </div>
                 </div>
             </div>
+        </section>
+        <section class="section-2">
+            <div class="event-wrap">
+                <div class="container-fluid">
+                    <div class="row">
+                        @foreach ($events as $event)
+                            <div class="col-3">@include('components.event.event-card')</div>
+                            <div class="col-3">@include('components.event.event-card')</div>
+                            <div class="col-3">@include('components.event.event-card')</div>
+                        @endforeach
+
+                    </div>
+                </div>
+
+            </div>
+        </section>
     </div>
-    </section>
 @endsection

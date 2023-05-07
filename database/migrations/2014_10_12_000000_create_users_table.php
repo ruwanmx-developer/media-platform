@@ -1,5 +1,6 @@
 <?php
 
+use App\Models\User;
 use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
@@ -22,6 +23,50 @@ return new class extends Migration
             $table->rememberToken();
             $table->timestamps();
         });
+
+        User::create([
+            'name' => 'John Doe',
+            'email' => 'admin@gmail.com',
+            'address' => '123 Main St',
+            'mobile' => '1234567890',
+            'district' => 'New York',
+            'description' => 'Lorem ipsum dolor sit amet',
+            'role' => '0',
+            'password' => bcrypt('admin123@'),
+        ]);
+
+        User::create([
+            'name' => 'John Doe',
+            'email' => 'user@gmail.com',
+            'address' => '123 Main St',
+            'mobile' => '1234567890',
+            'district' => 'New York',
+            'description' => 'Lorem ipsum dolor sit amet',
+            'role' => '1',
+            'password' => bcrypt('admin123@'),
+        ]);
+
+        User::create([
+            'name' => 'John Doe',
+            'email' => 'mentor@gmail.com',
+            'address' => '123 Main St',
+            'mobile' => '1234567890',
+            'district' => 'New York',
+            'description' => 'Lorem ipsum dolor sit amet',
+            'role' => '1',
+            'password' => bcrypt('admin123@'),
+        ]);
+
+        User::create([
+            'name' => 'John Doe',
+            'email' => 'company@gmail.com',
+            'address' => '123 Main St',
+            'mobile' => '1234567890',
+            'district' => 'New York',
+            'description' => 'Lorem ipsum dolor sit amet',
+            'role' => '1',
+            'password' => bcrypt('admin123@'),
+        ]);
     }
 
     /**
