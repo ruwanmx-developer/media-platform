@@ -53,7 +53,7 @@ return new class extends Migration
             'mobile' => '1234567890',
             'district' => 'New York',
             'description' => 'Lorem ipsum dolor sit amet',
-            'role' => '1',
+            'role' => '2',
             'password' => bcrypt('admin123@'),
         ]);
 
@@ -64,7 +64,7 @@ return new class extends Migration
             'mobile' => '1234567890',
             'district' => 'New York',
             'description' => 'Lorem ipsum dolor sit amet',
-            'role' => '1',
+            'role' => '3',
             'password' => bcrypt('admin123@'),
         ]);
     }

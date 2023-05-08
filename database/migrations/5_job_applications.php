@@ -9,9 +9,9 @@ return new class extends Migration
     public function up(): void
     {
         Schema::create('job_applications', function (Blueprint $table) {
-            $table->id();
-            $table->foreign('vacancy_id')->references('id')->on('vacancies');
-            $table->foreign('user_id')->references('id')->on('users');
+            $table->unsignedBigInteger('id');
+            $table->unsignedBigInteger('vacancy_id');
+            $table->unsignedBigInteger('user_id');
             $table->string('state');
             $table->timestamps();
         });

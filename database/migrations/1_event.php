@@ -8,17 +8,20 @@ return new class extends Migration
 {
     public function up(): void
     {
-        Schema::create('feeds', function (Blueprint $table) {
-            $table->id();
-            $table->string('source');
+        Schema::create('events', function (Blueprint $table) {
+            $table->unsignedBigInteger('id');
+            $table->string('name');
+            $table->date('event_date');
+            $table->string('location');
             $table->string('description');
-            $table->foreign('user_id')->references('id')->on('users');
+            $table->string('organizer');
+            $table->string('state');
             $table->timestamps();
         });
     }
 
     public function down(): void
     {
-        Schema::dropIfExists('event_favourites');
+        Schema::dropIfExists('events');
     }
 };

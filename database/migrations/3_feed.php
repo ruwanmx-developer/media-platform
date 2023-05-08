@@ -8,20 +8,17 @@ return new class extends Migration
 {
     public function up(): void
     {
-        Schema::create('events', function (Blueprint $table) {
-            $table->id();
-            $table->string('name');
-            $table->date('event_date');
-            $table->string('location');
+        Schema::create('feeds', function (Blueprint $table) {
+            $table->unsignedBigInteger('id');
+            $table->string('source');
             $table->string('description');
-            $table->string('organizer');
-            $table->string('state');
+            $table->unsignedBigInteger('user_id');
             $table->timestamps();
         });
     }
 
     public function down(): void
     {
-        Schema::dropIfExists('events');
+        Schema::dropIfExists('feeds');
     }
 };
