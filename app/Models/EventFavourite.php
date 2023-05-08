@@ -11,17 +11,17 @@ class EventFavourite extends Model
     use HasFactory;
 
     protected $fillable = [
-        'event',
-        'user',
+        'event_id',
+        'user_id',
     ];
 
     public function user(): BelongsTo
     {
-        return $this->belongsTo(User::class, 'user', 'id');
+        return $this->belongsTo(User::class, 'user_id', 'id');
     }
 
     public function event(): BelongsTo
     {
-        return $this->belongsTo(Event::class, 'event', 'id');
+        return $this->belongsTo(Event::class, 'event_id', 'id');
     }
 }

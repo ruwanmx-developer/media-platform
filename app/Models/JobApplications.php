@@ -11,18 +11,18 @@ class JobApplications extends Model
     use HasFactory;
 
     protected $fillable = [
-        'vacancy',
-        'user',
+        'vacancy_id',
+        'user_id',
         'state',
     ];
 
     public function user(): BelongsTo
     {
-        return $this->belongsTo(User::class, 'user', 'id');
+        return $this->belongsTo(User::class, 'user_id', 'id');
     }
 
     public function vacancy(): BelongsTo
     {
-        return $this->belongsTo(Vacancy::class, 'vacancy', 'id');
+        return $this->belongsTo(Vacancy::class, 'vacancy_id', 'id');
     }
 }

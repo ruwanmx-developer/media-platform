@@ -13,13 +13,13 @@ class Feed extends Model
     protected $fillable = [
         'source',
         'description',
-        'user',
+        'user_id',
         'state',
     ];
 
     public function user(): BelongsTo
 
     {
-        return $this->belongsTo(User::class, 'user', 'id');
+        return $this->belongsTo(User::class, 'user_id', 'id');
     }
 }

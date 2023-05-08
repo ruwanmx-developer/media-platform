@@ -12,12 +12,12 @@ class Question extends Model
 
     protected $fillable = [
         'question',
-        'user',
+        'user_id',
         'state',
     ];
 
     public function user(): BelongsTo
     {
-        return $this->belongsTo(User::class, 'user', 'id');
+        return $this->belongsTo(User::class, 'user_id', 'id');
     }
 }
