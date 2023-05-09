@@ -16,6 +16,9 @@
                         <li class="nav-item">
                             <a class="nav-link" href="{{ route('mentor-class-index') }}">Class Management</a>
                         </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="{{ route('mentor-tutorial-index') }}">Tutorial Management</a>
+                        </li>
                     @endif
                 @else
                     <li class="nav-item">

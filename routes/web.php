@@ -39,3 +39,12 @@ Route::post('/company-job-delete/{id}', [App\Http\Controllers\JobController::cla
 Route::get('/company-application-index/{id}', [App\Http\Controllers\JobApplicationController::class, 'company_index'])->name('company-application-index');
 Route::post('/company-application-delete/{id}', [App\Http\Controllers\JobApplicationController::class, 'company_hide'])->name('company-application-delete');
 Route::get('/company-application-user/{id}', [App\Http\Controllers\JobApplicationController::class, 'company_view_user'])->name('company-application-user');
+
+
+// tutorial
+Route::get('/mentor-tutorial-index', [App\Http\Controllers\TutorialController::class, 'index'])->name('mentor-tutorial-index');
+Route::get('/mentor-tutorial-add', [App\Http\Controllers\TutorialController::class, 'add'])->name('mentor-tutorial-add');
+Route::get('/mentor-tutorial-edit/{id}', [App\Http\Controllers\TutorialController::class, 'edit'])->name('mentor-tutorial-edit');
+Route::post('/mentor-tutorial-create', [App\Http\Controllers\TutorialController::class, 'create'])->name('mentor-tutorial-create');
+Route::post('/mentor-tutorial-update', [App\Http\Controllers\TutorialController::class, 'update'])->name('mentor-tutorial-update');
+Route::post('/mentor-tutorial-delete/{id}', [App\Http\Controllers\TutorialController::class, 'delete'])->name('mentor-tutorial-delete');
