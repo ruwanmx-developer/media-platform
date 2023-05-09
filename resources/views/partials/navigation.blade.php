@@ -12,7 +12,10 @@
                         <li class="nav-item">
                             <a class="nav-link" href="{{ route('company-job-index') }}">Job Management</a>
                         </li>
-                    @elseif (Auth::user()->role == 1)
+                    @elseif (Auth::user()->role == 2)
+                        <li class="nav-item">
+                            <a class="nav-link" href="{{ route('mentor-class-index') }}">Class Management</a>
+                        </li>
                     @endif
                 @else
                     <li class="nav-item">

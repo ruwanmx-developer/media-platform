@@ -14,7 +14,7 @@ class PagesController extends Controller
         if (Auth::check() && Auth::user()->role == 3) { // job user
             return redirect('/company-dashboard');
         } else if (Auth::check() && Auth::user()->role == 2) { // mentor user
-
+            return redirect('/mentor-dashboard');
         } else if (Auth::check() && Auth::user()->role == 1) { // common user
         } else if (Auth::check() && Auth::user()->role == 0) { // admin user
         } else { // unregisterd user

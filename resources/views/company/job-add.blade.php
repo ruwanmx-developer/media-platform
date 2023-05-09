@@ -13,7 +13,7 @@
                 </div>
                 <div class="col-12">
                     <div class="form-title">Add New Job Vacancy</div>
-                    <form action="{{ route('company-job-create') }}" method="POST">
+                    <form action="{{ route('mentor-class-create') }}" method="POST">
                         @csrf
                         <div class="input-group mb-3">
                             <span class="input-group-text @error('title') is-invalid @enderror">Job Title</span>

@@ -10,6 +10,23 @@ Route::get('/', [App\Http\Controllers\PagesController::class, 'index'])->name('i
 // company
 Route::get('/company-dashboard', [App\Http\Controllers\CompanyController::class, 'index'])->name('company-dashboard');
 
+// mentor
+Route::get('/mentor-dashboard', [App\Http\Controllers\MentorController::class, 'index'])->name('mentor-dashboard');
+
+// class routes
+Route::get('/mentor-class-index', [App\Http\Controllers\TutionController::class, 'index'])->name('mentor-class-index');
+Route::get('/mentor-class-add', [App\Http\Controllers\TutionController::class, 'add'])->name('mentor-class-add');
+Route::post('/mentor-class-create', [App\Http\Controllers\TutionController::class, 'create'])->name('mentor-class-create');
+Route::get('/mentor-class-edit/{id}', [App\Http\Controllers\TutionController::class, 'edit'])->name('mentor-class-edit');
+Route::post('/mentor-class-update', [App\Http\Controllers\TutionController::class, 'update'])->name('mentor-class-update');
+Route::post('/mentor-class-delete/{id}', [App\Http\Controllers\TutionController::class, 'delete'])->name('mentor-class-delete');
+
+// class request pages
+Route::get('/mentor-request-index/{id}', [App\Http\Controllers\TutionRequestController::class, 'mentor_index'])->name('mentor-request-index');
+Route::post('/mentor-request-delete/{id}', [App\Http\Controllers\TutionRequestController::class, 'mentor_hide'])->name('mentor-request-delete');
+Route::get('/mentor-request-user/{id}', [App\Http\Controllers\TutionRequestController::class, 'mentor_view_user'])->name('mentor-request-user');
+
+
 // job routes
 Route::get('/company-job-index', [App\Http\Controllers\JobController::class, 'index'])->name('company-job-index');
 Route::get('/company-job-add', [App\Http\Controllers\JobController::class, 'add'])->name('company-job-add');
