@@ -28,4 +28,15 @@ class PagesController extends Controller
 
         return view('home', ['events' => $events]);
     }
+
+    public function internship()
+    {
+        if (!Auth::check()) {
+            return redirect('/')->with('message', 'You have to login to use this function!');
+        }
+        if (Auth::user()->role != 1) {
+            return redirect('/')->with('message', 'You have no access to this area!');
+        }
+        return view('user.internship');
+    }
 }

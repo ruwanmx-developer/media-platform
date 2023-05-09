@@ -1,7 +1,7 @@
 @extends('layouts.app')
 
 @section('content')
-    <div id="company-job-index">
+    <div id="dashboard">
         <div class="container">
             <div class="row">
                 <div class="col-12">
@@ -13,7 +13,7 @@
                 </div>
                 <div class="col-12">
                     <div class="form-title">Add New Job Vacancy</div>
-                    <form action="{{ route('mentor-class-create') }}" method="POST">
+                    <form action="{{ route('company-job-create') }}" method="POST">
                         @csrf
                         <div class="input-group mb-3">
                             <span class="input-group-text @error('title') is-invalid @enderror">Job Title</span>

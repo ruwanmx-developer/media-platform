@@ -35,9 +35,9 @@ class TutorialController extends Controller
         Storage::delete("public/uploads/tutorials/" . $tutorial->source_url);
         try {
             $tutorial->delete();
-            return redirect('mentor-tutorial-index')->with('success', 'Your process was successful!');
+            return redirect('mentor-tutorial-index')->with('message', 'Your process was successful!');
         } catch (\Exception $e) {
-            return redirect('mentor-tutorial-index')->with('error', 'Your process was faild! Error: ' . $e->getMessage());
+            return redirect('mentor-tutorial-index')->with('message', 'Your process was faild! Try Again!');
         }
     }
 
@@ -64,9 +64,9 @@ class TutorialController extends Controller
 
         try {
             $tutorial->save();
-            return redirect('mentor-tutorial-index')->with('success', 'Your process was successful!');
+            return redirect('mentor-tutorial-index')->with('message', 'Your process was successful!');
         } catch (\Exception $e) {
-            return redirect('mentor-tutorial-edit')->with('error', 'Your process was faild! Error: ' . $e->getMessage());
+            return redirect('mentor-tutorial-edit')->with('message', 'Your process was faild! Try Again!');
         }
     }
 
@@ -101,9 +101,9 @@ class TutorialController extends Controller
 
         try {
             $tutorial->save();
-            return redirect('mentor-tutorial-index')->with('success', 'Your process was successful!');
+            return redirect('mentor-tutorial-index')->with('message', 'Your process was successful!');
         } catch (\Exception $e) {
-            return redirect('mentor-tutorial-add')->with('error', 'Your process was faild! Error: ' . $e->getMessage());
+            return redirect('mentor-tutorial-add')->with('message', 'Your process was faild! Try Again!');
         }
     }
 }

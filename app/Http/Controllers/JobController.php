@@ -32,9 +32,9 @@ class JobController extends Controller
         $vacancy = Vacancy::where('id', '=', $request->id)->first();
         try {
             $vacancy->delete();
-            return redirect('company-job-index')->with('success', 'Your process was successful!');
+            return redirect('company-job-index')->with('message', 'Your process was successful!');
         } catch (\Exception $e) {
-            return redirect('company-job-index')->with('error', 'Your process was faild! Error: ' . $e->getMessage());
+            return redirect('company-job-index')->with('message', 'Your process was faild! Try Again!');
         }
     }
 
@@ -66,13 +66,13 @@ class JobController extends Controller
 
         try {
             $vacancy->save();
-            return redirect('company-job-index')->with('success', 'Your process was successful!');
+            return redirect('company-job-index')->with('message', 'Your process was successful!');
         } catch (\Exception $e) {
-            return redirect('company-job-edit')->with('error', 'Your process was faild! Error: ' . $e->getMessage());
+            return redirect('company-job-edit')->with('message', 'Your process was faild! Try Again!');
         }
     }
 
-    public function job_create(Request $request)
+    public function create(Request $request)
     {
         $validator = Validator::make($request->all(), [
             'title' => 'required|string|max:255',
@@ -95,13 +95,13 @@ class JobController extends Controller
         $vacancy->location = $validatedData['location'];
         $vacancy->salary = $validatedData['salary'];
         $vacancy->user_id = Auth::user()->id;
-        $vacancy->state = "ACTIIVE";
+        $vacancy->state = "ACTIVE";
 
         try {
             $vacancy->save();
-            return redirect('company-job-index')->with('success', 'Your process was successful!');
+            return redirect('company-job-index')->with('message', 'Your process was successful!');
         } catch (\Exception $e) {
-            return redirect('company-job-add')->with('error', 'Your process was faild! Error: ' . $e->getMessage());
+            return redirect('company-job-add')->with('message', 'Your process was faild! Try Again!');
         }
     }
 }

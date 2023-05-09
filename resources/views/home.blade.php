@@ -8,32 +8,38 @@
                     <div class="col-12">
                         <div class="title mb-5">Looking For A ?</div>
                     </div>
-                    <div class="col-12 col-md-4 col-lg-2">
-                        <div class="globe-card">
-                            Insperation
-                        </div>
+                    <div class="col-12 col-md-4">
+                        <a href="{{ route('internship') }}">
+                            <div class="globe-card">
+                                Insperation
+                            </div>
+                        </a>
                     </div>
-                    <div class="col-12 col-md-4 col-lg-2">
-                        <div class="globe-card">
-                            Internship
-                        </div>
+                    <div class="col-12 col-md-4 ">
+                        <a href="{{ route('internship') }}">
+                            <div class="globe-card">
+                                Internship
+                            </div>
+                        </a>
                     </div>
-                    <div class="col-12 col-md-4 col-lg-2">
+                    <div class="col-12 col-md-4 ">
                         <div class="globe-card">
                             Mentor
                         </div>
                     </div>
-                    <div class="col-12 col-md-4 col-lg-2">
+                </div>
+                <div class="row mt-5">
+                    <div class="col-12 col-md-4 d-flex justify-content-end">
                         <div class="globe-card">
                             Learn
                         </div>
                     </div>
-                    <div class="col-12 col-md-4 col-lg-2">
+                    <div class="col-12 col-md-4 d-flex justify-content-end">
                         <div class="globe-card">
                             Q & A
                         </div>
                     </div>
-                    <div class="col-12 col-md-4 col-lg-2">
+                    <div class="col-12 col-md-4 d-flex justify-content-end">
                         <div class="globe-card">
                             Counseling
                         </div>

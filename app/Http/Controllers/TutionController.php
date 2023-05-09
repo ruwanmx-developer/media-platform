@@ -31,9 +31,9 @@ class TutionController extends Controller
         $class = Tution::where('id', '=', $request->id)->first();
         try {
             $class->delete();
-            return redirect('mentor-class-index')->with('success', 'Your process was successful!');
+            return redirect('mentor-class-index')->with('message', 'Your process was successful!');
         } catch (\Exception $e) {
-            return redirect('mentor-class-index')->with('error', 'Your process was faild! Error: ' . $e->getMessage());
+            return redirect('mentor-class-index')->with('message', 'Your process was faild! Try Again!');
         }
     }
     public function update(Request $request)
@@ -68,9 +68,9 @@ class TutionController extends Controller
 
         try {
             $tution->save();
-            return redirect('mentor-class-index')->with('success', 'Your process was successful!');
+            return redirect('mentor-class-index')->with('message', 'Your process was successful!');
         } catch (\Exception $e) {
-            return redirect('mentor-class-add')->with('error', 'Your process was faild! Error: ' . $e->getMessage());
+            return redirect('mentor-class-add')->with('message', 'Your process was faild! Try Again!');
         }
     }
 
@@ -105,9 +105,9 @@ class TutionController extends Controller
 
         try {
             $tution->save();
-            return redirect('mentor-class-index')->with('success', 'Your process was successful!');
+            return redirect('mentor-class-index')->with('message', 'Your process was successful!');
         } catch (\Exception $e) {
-            return redirect('mentor-class-add')->with('error', 'Your process was faild! Error: ' . $e->getMessage());
+            return redirect('mentor-class-add')->with('message', 'Your process was faild! Try Again!');
         }
     }
 }

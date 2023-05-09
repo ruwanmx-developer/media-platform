@@ -1,7 +1,7 @@
 @extends('layouts.app')
 
 @section('content')
-    <div id="company-job-index">
+    <div id="dashboard">
         <div class="container">
             <div class="row">
                 <div class="col-12">
@@ -38,7 +38,7 @@
                                         <a href="{{ route('company-application-user', ['id' => $application->user->id, 'application' => $application->id]) }}"
                                             class="btn btn-success py-1">View User</a>
                                         <button onclick="deleteApplication({{ $application->id }})"
-                                            class="btn btn-danger py-1">Delete</button>
+                                            class="btn btn-danger py-1">Delet</button>
                                     </td>
                                 </tr>
                             @endforeach

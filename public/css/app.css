@@ -7,14 +7,45 @@ body {
     margin: 0;
     padding: 0;
 }
-
-#home {
-    background-image: url("../images/19678.jpg");
+#page_toast img {
+    height: 25px;
+}
+#dashboard {
+    background-image: url("../images/index.jpg");
     background-size: cover;
-    background-position: top;
+    background-position: bottom;
     background-repeat: no-repeat;
     background-attachment: fixed;
-    min-height: calc(100vh - 56px);
+    min-height: calc(100vh - 54px);
+    padding-top: 30px;
+}
+.btn {
+    padding: 3px 10px !important;
+    font-size: 14px;
+    text-transform: uppercase;
+    font-weight: 600;
+    transition: all 0.2s;
+}
+.btn:hover {
+    box-shadow: 2px 2px 5px #000;
+}
+.navbar {
+    padding: 2px;
+}
+.navbar img {
+    height: 40px;
+    margin-right: 20px;
+}
+.navbar .nav-item {
+    margin-right: 30px;
+}
+#home {
+    background-image: url("../images/index.jpg");
+    background-size: cover;
+    background-position: bottom;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    min-height: calc(100vh - 54px);
 }
 #home .section-1 {
     min-height: calc(75vh - 56px);
@@ -32,7 +63,7 @@ body {
 #home .globe-card {
     width: 200px;
     height: 200px;
-    background: #00000035;
+    background: #00000032;
     border-radius: 100px;
     backdrop-filter: blur(3px);
     display: flex;
@@ -42,35 +73,11 @@ body {
     color: #fff;
     font-size: 25px;
     font-weight: 600;
+    cursor: pointer;
+    transition: all 0.5s;
 }
-
-#home .globe-card {
-    width: 200px;
-    height: 200px;
-    background: #00000035;
-    border-radius: 100px;
-    backdrop-filter: blur(3px);
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    box-shadow: 2px 2px 5px #000000, -2px -2px 5px #ffffff;
-    color: #fff;
-    font-size: 25px;
-    font-weight: 600;
-}
-#home .globe-card {
-    width: 200px;
-    height: 200px;
-    background: #00000035;
-    border-radius: 100px;
-    backdrop-filter: blur(3px);
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    box-shadow: 2px 2px 5px #000000, -2px -2px 5px #ffffff;
-    color: #fff;
-    font-size: 25px;
-    font-weight: 600;
+#home .globe-card:hover {
+    box-shadow: 2px 2px 15px #000000, 2px 2px 15px #000000;
 }
 
 #register {
@@ -135,4 +142,22 @@ body {
 }
 .event-card img {
     width: 100%;
+}
+
+/*  */
+.job-details-card {
+    border-radius: 5px;
+    background-color: #ffffffa5;
+    padding: 10px;
+    font-size: 14px;
+    text-transform: capitalize;
+    line-height: 17px;
+    box-shadow: 2px 2px 10px #393939;
+    transition: all 0.2s;
+}
+.job-details-card:hover {
+    background-color: #ffffffe1;
+}
+.job-details-card span {
+    font-weight: 700;
 }

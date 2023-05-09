@@ -1,56 +1,33 @@
 @extends('layouts.app')
 
 @section('content')
-    <div id="company-job-index">
+    <div id="dashboard">
         <div class="container">
             <div class="row">
                 <div class="col-12">
-                    @if (session('success'))
-                        <div class="alert alert-success">
-                            {{ session('success') }}
-                        </div>
-                    @endif
-                </div>
-                <div class="col-12">
-                    <a href="{{ route('company-job-add') }}" class="btn btn-primary">Add New Job Vcancy</a>
-                    <table class="table">
-                        <thead>
-                            <tr>
-                                <th scope="col">#</th>
-                                <th scope="col">Title</th>
-                                <th scope="col">Type</th>
-                                <th scope="col">Location</th>
-                                <th scope="col">Salary</th>
-                                <th scope="col">State</th>
-                                <th scope="col">Action</th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            @php
-                                $row_count = 1;
-                            @endphp
-                            @foreach ($jobs as $job)
-                                <tr>
-                                    <th scope="row">{{ $row_count++ }}</th>
-                                    <td>{{ $job->title }}</td>
-                                    <td>{{ $job->type }}</td>
-                                    <td>{{ $job->location }}</td>
-                                    <td>{{ $job->salary }}</td>
-                                    <td>{{ $job->state }}</td>
-                                    <td>
+                    <a href="{{ route('company-job-add') }}" class="btn btn-primary mb-3">Add New Job Vacancy</a>
+                    <div class="row">
+                        @foreach ($jobs as $job)
+                            <div class="col-4 mb-4">
+                                <div class="job-details-card">
+                                    <div class="title"><span>Title : </span>{{ $job->title }}</div>
+                                    <div class="location"><span>Location : </span>{{ $job->location }}</div>
+                                    <div class="type"><span>Type : </span>{{ $job->type }}</div>
+                                    <div class="salary"><span>Salary : </span>{{ $job->salary }} /=</div>
+                                    <div class="state"><span>State : </span>{{ $job->state }}</div>
+                                    <div class="d-flex justify-content-end">
                                         <a href="{{ route('company-application-index', ['id' => $job->id]) }}"
-                                            class="btn btn-success py-1">Applications</a>
+                                            class="btn btn-success me-2">Applications</a>
                                         <a href="{{ route('company-job-edit', ['id' => $job->id]) }}"
-                                            class="btn btn-warning py-1">Edit</a>
+                                            class="btn btn-warning me-2">Edit</a>
                                         <button onclick="deleteVacancy({{ $job->id }})"
-                                            class="btn btn-danger py-1">Delete</button>
+                                            class="btn btn-danger">Delete</button>
+                                    </div>
+                                </div>
+                            </div>
+                        @endforeach
+                    </div>
 
-                                    </td>
-                                </tr>
-                            @endforeach
-
-                        </tbody>
-                    </table>
                 </div>
             </div>
         </div>

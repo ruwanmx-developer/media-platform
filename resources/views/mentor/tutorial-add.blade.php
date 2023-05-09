@@ -47,7 +47,7 @@
                         <div class="col-12 d-flex justify-content-end">
                             <a href="{{ route('mentor-tutorial-index') }}" type="button" class="btn btn-primary">Go
                                 Back</a>
-                            <button type="submit" class="btn btn-primary">Save New Class</button>
+                            <button type="submit" class="btn btn-primary">Save New Tutorial</button>
                         </div>
                     </form>
 

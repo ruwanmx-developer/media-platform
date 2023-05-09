@@ -48,3 +48,6 @@ Route::get('/mentor-tutorial-edit/{id}', [App\Http\Controllers\TutorialControlle
 Route::post('/mentor-tutorial-create', [App\Http\Controllers\TutorialController::class, 'create'])->name('mentor-tutorial-create');
 Route::post('/mentor-tutorial-update', [App\Http\Controllers\TutorialController::class, 'update'])->name('mentor-tutorial-update');
 Route::post('/mentor-tutorial-delete/{id}', [App\Http\Controllers\TutorialController::class, 'delete'])->name('mentor-tutorial-delete');
+
+
+Route::get('/internship', [App\Http\Controllers\PagesController::class, 'internship'])->name('internship');
