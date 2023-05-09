@@ -9,7 +9,7 @@ return new class extends Migration
     public function up(): void
     {
         Schema::create('feeds', function (Blueprint $table) {
-            $table->unsignedBigInteger('id');
+            $table->id();
             $table->string('source');
             $table->string('description');
             $table->unsignedBigInteger('user_id');
