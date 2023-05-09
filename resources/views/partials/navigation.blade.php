@@ -12,9 +12,6 @@
                         <li class="nav-item">
                             <a class="nav-link" href="{{ route('company-job-index') }}">Job Management</a>
                         </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="#">Application Management</a>
-                        </li>
                     @elseif (Auth::user()->role == 1)
                     @endif
                 @else
