@@ -23,16 +23,20 @@
                         </a>
                     </div>
                     <div class="col-12 col-md-4 ">
-                        <div class="globe-card">
-                            Mentor
-                        </div>
+                        <a href="{{ route('mentor') }}">
+                            <div class="globe-card">
+                                Mentor
+                            </div>
+                        </a>
                     </div>
                 </div>
                 <div class="row mt-5">
                     <div class="col-12 col-md-4 d-flex justify-content-end">
-                        <div class="globe-card">
-                            Learn
-                        </div>
+                        <a href="{{ route('learn') }}">
+                            <div class="globe-card">
+                                Learn
+                            </div>
+                        </a>
                     </div>
                     <div class="col-12 col-md-4 d-flex justify-content-end">
                         <div class="globe-card">

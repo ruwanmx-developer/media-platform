@@ -51,3 +51,5 @@ Route::post('/mentor-tutorial-delete/{id}', [App\Http\Controllers\TutorialContro
 
 
 Route::get('/internship', [App\Http\Controllers\PagesController::class, 'internship'])->name('internship');
+Route::get('/learn', [App\Http\Controllers\PagesController::class, 'learn'])->name('learn');
+Route::get('/mentor', [App\Http\Controllers\MentorController::class, 'mentor'])->name('mentor');

@@ -39,4 +39,17 @@ class PagesController extends Controller
         }
         return view('user.internship');
     }
+
+    public function learn()
+    {
+        if (!Auth::check()) {
+            return redirect('/')->with('message', 'You have to login to use this function!');
+        }
+        if (Auth::user()->role != 1) {
+            return redirect('/')->with('message', 'You have no access to this area!');
+        }
+
+
+        return view('user.learn');
+    }
 }
