@@ -29,7 +29,7 @@ class JobApplicationController extends Controller
         $application->state = "DELETED";
         try {
             $application->save();
-            return redirect('company-application-index', ['id' => $request->id])->with('message', 'Your process was successful!');
+            return response()->json(['deleted' => true]);
         } catch (\Exception $e) {
             return redirect('company-job-index')->with('message', 'Your process was faild! Try Again!');
         }

@@ -3,7 +3,7 @@
 @section('content')
     <div id="dashboard">
         <div class="container">
-            <div class="row">
+            <div class="row justify-content-center">
                 <div class="col-12">
                     @if (session('error'))
                         <div class="alert alert-danger">
@@ -63,8 +63,9 @@
                             @enderror
                         </div>
                         <div class="col-12 d-flex justify-content-end">
-                            <a href="{{ route('company-job-index') }}" type="button" class="btn btn-primary">Go Back</a>
-                            <button type="submit" class="btn btn-primary">Save New Job</button>
+                            <a href="{{ route('company-job-index') }}" type="button" class="btn btn-danger me-2">Go
+                                Back</a>
+                            <button type="submit" class="btn btn-success">Save New Job</button>
                         </div>
                     </form>
 

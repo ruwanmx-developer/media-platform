@@ -3,50 +3,38 @@
 @section('content')
     <div id="dashboard">
         <div class="container">
+
             <div class="row">
                 <div class="col-12">
-                    @if (session('success'))
-                        <div class="alert alert-success">
-                            {{ session('success') }}
+                    <div class="form-title">Application Requests for the Vacancy</div>
+                </div>
+                @if (count($applications) == 0)
+                    <div class="col-12">
+                        <div class="alert alert-light" role="alert">
+                            There are no job vacancies to show.
                         </div>
-                    @endif
-                </div>
-                <div class="col-12">
-                    <table class="table">
-                        <thead>
-                            <tr>
-                                <th scope="col">#</th>
-                                <th scope="col">User Name</th>
-                                <th scope="col">User Email</th>
-                                <th scope="col">User Mobile</th>
-                                <th scope="col">State</th>
-                                <th scope="col">Action</th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            @php
-                                $row_count = 1;
-                            @endphp
-                            @foreach ($applications as $application)
-                                <tr>
-                                    <th scope="row">{{ $row_count++ }}</th>
-                                    <td>{{ $application->user->name }}</td>
-                                    <td>{{ $application->user->email }}</td>
-                                    <td>{{ $application->user->mobile }}</td>
-                                    <td>{{ $application->state }}</td>
-                                    <td>
-                                        <a href="{{ route('company-application-user', ['id' => $application->user->id, 'application' => $application->id]) }}"
-                                            class="btn btn-success py-1">View User</a>
-                                        <button onclick="deleteApplication({{ $application->id }})"
-                                            class="btn btn-danger py-1">Delet</button>
-                                    </td>
-                                </tr>
-                            @endforeach
 
-                        </tbody>
-                    </table>
-                </div>
+                    </div>
+                @endif
+
+                @foreach ($applications as $application)
+                    <div class="col-4 mb-4">
+                        <div class="job-details-card">
+                            <div class="title"><span>User Name : </span>{{ $application->user->name }}</div>
+                            <div class="location"><span>User Mobile : </span>{{ $application->user->mobile }}</div>
+                            <div class="type"><span>User Email : </span>{{ $application->user->email }}</div>
+                            <div class="state"><span>State : </span>{{ $application->state }}</div>
+                            <div class="d-flex justify-content-end">
+                                <a href="{{ route('company-application-user', ['id' => $application->user->id, 'application' => $application->id]) }}"
+                                    class="btn btn-success me-2">View User</a>
+                                <button onclick="deleteApplication({{ $application->id }})"
+                                    class="btn btn-danger">Delete</button>
+                            </div>
+                        </div>
+                    </div>
+                @endforeach
             </div>
+
         </div>
         <script>
             function deleteApplication(x) {
@@ -61,7 +49,10 @@
                 xhr.setRequestHeader('X-CSRF-TOKEN', $('meta[name="csrf-token"]').attr('content'));
                 xhr.onreadystatechange = function() {
                     if (this.readyState === 4 && this.status === 200) {
-
+                        var response = JSON.parse(this.responseText);
+                        if (response.deleted == true) {
+                            location.reload();
+                        }
                     }
                 };
 

@@ -7,6 +7,16 @@
                 <div class="col-12">
                     <a href="{{ route('company-job-add') }}" class="btn btn-primary mb-3">Add New Job Vacancy</a>
                     <div class="row">
+                        @if (count($jobs) == 0)
+                            <div class="col-12">
+                                <div class="alert alert-light" role="alert">
+                                    There are no job vacancies to show. <a href="{{ route('company-job-add') }}"
+                                        class="alert-link">Click here to
+                                        add</a>.
+                                </div>
+
+                            </div>
+                        @endif
                         @foreach ($jobs as $job)
                             <div class="col-4 mb-4">
                                 <div class="job-details-card">
@@ -33,13 +43,10 @@
         </div>
         <script>
             function deleteVacancy(x) {
-
                 const xhr = new XMLHttpRequest();
                 const url = '/company-job-delete/' + x;
                 const formData = new FormData();
-
                 formData.append('id', x);
-
                 xhr.open('POST', url);
                 xhr.setRequestHeader('X-CSRF-TOKEN', $('meta[name="csrf-token"]').attr('content'));
                 xhr.onreadystatechange = function() {
@@ -47,7 +54,6 @@
                         location.reload();
                     }
                 };
-
                 Swal.fire({
                     title: 'Are you sure?',
                     text: "If you delete a job vacancy it will remove all job all job applications also. if you want the applications just update the State to INACTIVE.You won't be able to revert this!",

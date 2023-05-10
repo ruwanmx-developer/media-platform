@@ -80,8 +80,9 @@
                             @enderror
                         </div>
                         <div class="col-12 d-flex justify-content-end">
-                            <a href="{{ route('company-job-index') }}" type="button" class="btn btn-primary">Go Back</a>
-                            <button type="submit" class="btn btn-primary">Update Existing Job</button>
+                            <a href="{{ route('company-job-index') }}" type="button" class="btn btn-danger me-2">Go
+                                Back</a>
+                            <button type="submit" class="btn btn-success">Update Existing Job</button>
                         </div>
                     </form>
                 </div>
