@@ -49,7 +49,7 @@ class JobController extends Controller
         ]);
 
         if ($validator->fails()) {
-            return redirect('company-job-edit')
+            return redirect()->route('company-job-edit', ['id' => $request->id])
                 ->withErrors($validator)
                 ->withInput();
         }

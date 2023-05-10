@@ -50,7 +50,7 @@ class TutorialController extends Controller
         ]);
 
         if ($validator->fails()) {
-            return redirect('mentor-tutorial-edit')
+            return redirect()->route('mentor-tutorial-edit', ['id' => $request->id])
                 ->withErrors($validator)
                 ->withInput();
         }

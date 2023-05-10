@@ -59,7 +59,7 @@
                         <div class="input-group mb-3">
                             <span class="input-group-text @error('salary') is-invalid @enderror">Salary</span>
                             <input name="salary" type="text" class="form-control" placeholder="Enter the job salary"
-                                value="{{ old('title', $job->salary) }}">
+                                value="{{ old('salary', $job->salary) }}">
                             @error('salary')
                                 <span class="invalid-feedback" role="alert">
                                     <strong>{{ $message }}</strong></span>

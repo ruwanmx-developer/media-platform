@@ -19,7 +19,7 @@
 
                 @foreach ($applications as $application)
                     <div class="col-4 mb-4">
-                        <div class="job-details-card">
+                        <div class="dashboard-details-card">
                             <div class="title"><span>User Name : </span>{{ $application->user->name }}</div>
                             <div class="location"><span>User Mobile : </span>{{ $application->user->mobile }}</div>
                             <div class="type"><span>User Email : </span>{{ $application->user->email }}</div>

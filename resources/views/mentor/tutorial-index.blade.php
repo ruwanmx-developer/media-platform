@@ -1,7 +1,7 @@
 @extends('layouts.app')
 
 @section('content')
-    <div id="company-job-index">
+    <div id="dashboard">
         <div class="container">
             <div class="row">
                 <div class="col-12">
@@ -12,44 +12,37 @@
                     @endif
                 </div>
                 <div class="col-12">
-                    <a href="{{ route('mentor-tutorial-add') }}" class="btn btn-primary">Add New Tutorial</a>
-                    <table class="table">
-                        <thead>
-                            <tr>
-                                <th scope="col">#</th>
-                                <th scope="col">Title</th>
-                                <th scope="col">Description</th>
-                                <th scope="col">Content</th>
-                                <th scope="col">Views</th>
-                                <th scope="col">State</th>
-                                <th scope="col">Action</th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            @php
-                                $row_count = 1;
-                            @endphp
-                            @foreach ($tutorials as $tutorial)
-                                <tr>
-                                    <th scope="row">{{ $row_count++ }}</th>
-                                    <td>{{ $tutorial->title }}</td>
-                                    <td>{{ $tutorial->description }}</td>
-                                    <td>{{ $tutorial->source_url }}</td>
-                                    <td>{{ $tutorial->views }}</td>
-                                    <td>{{ $tutorial->state }}</td>
-                                    <td>
+                    <a href="{{ route('mentor-tutorial-add') }}" class="btn btn-primary mb-3">Add New Tutorial</a>
+                    <div class="row">
+                        @if (count($tutorials) == 0)
+                            <div class="col-12">
+                                <div class="alert alert-light" role="alert">
+                                    There are no job vacancies to show. <a href="{{ route('company-job-add') }}"
+                                        class="alert-link">Click here to
+                                        add</a>.
+                                </div>
 
+                            </div>
+                        @endif
+                        @foreach ($tutorials as $tutorial)
+                            <div class="col-4 mb-4">
+                                <div class="dashboard-details-card">
+                                    <div class="title"><span>Title : </span>{{ $tutorial->title }}</div>
+                                    <div class="location"><span>Description : </span>{{ $tutorial->description }}</div>
+                                    <div class="type"><span>Content : </span>{{ $tutorial->source_url }}</div>
+                                    <div class="salary"><span>Views : </span>{{ $tutorial->views }}</div>
+                                    <div class="state"><span>State : </span>{{ $tutorial->state }}</div>
+                                    <div class="d-flex justify-content-end">
                                         <a href="{{ route('mentor-tutorial-edit', ['id' => $tutorial->id]) }}"
-                                            class="btn btn-warning py-1">Edit</a>
+                                            class="btn btn-warning me-2">Edit</a>
                                         <button onclick="deleteClass({{ $tutorial->id }})"
-                                            class="btn btn-danger py-1">Delete</button>
+                                            class="btn btn-danger">Delete</button>
+                                    </div>
+                                </div>
+                            </div>
+                        @endforeach
+                    </div>
 
-                                    </td>
-                                </tr>
-                            @endforeach
-
-                        </tbody>
-                    </table>
                 </div>
             </div>
         </div>

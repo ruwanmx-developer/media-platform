@@ -49,7 +49,7 @@ class TutionController extends Controller
         ]);
 
         if ($validator->fails()) {
-            return redirect('mentor-class-add')
+            return redirect()->route('mentor-class-edit', ['id' => $request->id])
                 ->withErrors($validator)
                 ->withInput();
         }
@@ -70,7 +70,7 @@ class TutionController extends Controller
             $tution->save();
             return redirect('mentor-class-index')->with('message', 'Your process was successful!');
         } catch (\Exception $e) {
-            return redirect('mentor-class-add')->with('message', 'Your process was faild! Try Again!');
+            return redirect('mentor-class-edit')->with('message', 'Your process was faild! Try Again!');
         }
     }
 

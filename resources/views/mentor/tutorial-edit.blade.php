@@ -1,7 +1,7 @@
 @extends('layouts.app')
 
 @section('content')
-    <div id="company-job-index">
+    <div id="dashboard">
         <div class="container">
             <div class="row">
                 <div class="col-12">
@@ -50,9 +50,9 @@
                             @enderror
                         </div>
                         <div class="col-12 d-flex justify-content-end">
-                            <a href="{{ route('mentor-tutorial-index') }}" type="button" class="btn btn-primary">Go
+                            <a href="{{ route('mentor-tutorial-index') }}" type="button" class="btn btn-danger me-2">Go
                                 Back</a>
-                            <button type="submit" class="btn btn-primary">Update Existing Tutorial</button>
+                            <button type="submit" class="btn btn-success">Update Existing Tutorial</button>
                         </div>
                     </form>
 

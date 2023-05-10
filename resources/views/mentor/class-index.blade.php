@@ -1,7 +1,7 @@
 @extends('layouts.app')
 
 @section('content')
-    <div id="company-job-index">
+    <div id="dashboard">
         <div class="container">
             <div class="row">
                 <div class="col-12">
@@ -12,49 +12,40 @@
                     @endif
                 </div>
                 <div class="col-12">
-                    <a href="{{ route('mentor-class-add') }}" class="btn btn-primary">Add New Class</a>
-                    <table class="table">
-                        <thead>
-                            <tr>
-                                <th scope="col">#</th>
-                                <th scope="col">Class Name</th>
-                                <th scope="col">From</th>
-                                <th scope="col">To</th>
-                                <th scope="col">Day</th>
-                                <th scope="col">Location</th>
-                                <th scope="col">District</th>
-                                <th scope="col">State</th>
-                                <th scope="col">Action</th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            @php
-                                $row_count = 1;
-                            @endphp
-                            @foreach ($classes as $class)
-                                <tr>
-                                    <th scope="row">{{ $row_count++ }}</th>
-                                    <td>{{ $class->class_name }}</td>
-                                    <td>{{ $class->time_from }}</td>
-                                    <td>{{ $class->time_to }}</td>
-                                    <td>{{ $class->day }}</td>
-                                    <td>{{ $class->location }}</td>
-                                    <td>{{ $class->district }}</td>
-                                    <td>{{ $class->state }}</td>
-                                    <td>
+                    <a href="{{ route('mentor-class-add') }}" class="btn btn-primary mb-3">Add New Class</a>
+                    <div class="row">
+                        @if (count($classes) == 0)
+                            <div class="col-12">
+                                <div class="alert alert-light" role="alert">
+                                    There are no job vacancies to show. <a href="{{ route('company-job-add') }}"
+                                        class="alert-link">Click here to
+                                        add</a>.
+                                </div>
+
+                            </div>
+                        @endif
+                        @foreach ($classes as $class)
+                            <div class="col-4 mb-4">
+                                <div class="dashboard-details-card">
+                                    <div class="title"><span>Class Name : </span>{{ $class->class_name }}</div>
+                                    <div class="location"><span>Time : </span>From {{ $class->time_from }} to
+                                        {{ $class->time_to }}</div>
+                                    <div class="type"><span>Day : </span>{{ $class->day }}</div>
+                                    <div class="salary"><span>Location : </span>{{ $class->location }}</div>
+                                    <div class="salary"><span>District : </span>{{ $class->district }}</div>
+                                    <div class="state"><span>State : </span>{{ $class->state }}</div>
+                                    <div class="d-flex justify-content-end">
                                         <a href="{{ route('mentor-request-index', ['id' => $class->id]) }}"
-                                            class="btn btn-success py-1">Requests</a>
+                                            class="btn btn-success me-2">Requests</a>
                                         <a href="{{ route('mentor-class-edit', ['id' => $class->id]) }}"
-                                            class="btn btn-warning py-1">Edit</a>
+                                            class="btn btn-warning me-2">Edit</a>
                                         <button onclick="deleteClass({{ $class->id }})"
-                                            class="btn btn-danger py-1">Delete</button>
-
-                                    </td>
-                                </tr>
-                            @endforeach
-
-                        </tbody>
-                    </table>
+                                            class="btn btn-danger ">Delete</button>
+                                    </div>
+                                </div>
+                            </div>
+                        @endforeach
+                    </div>
                 </div>
             </div>
         </div>

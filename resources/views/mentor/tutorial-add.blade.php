@@ -1,7 +1,7 @@
 @extends('layouts.app')
 
 @section('content')
-    <div id="company-job-index">
+    <div id="dashboard">
         <div class="container">
             <div class="row">
                 <div class="col-12">
@@ -27,8 +27,8 @@
                         <div class="input-group mb-3">
                             <span class="input-group-text @error('description') is-invalid @enderror">Tutorial
                                 Description</span>
-                            <input name="description" type="text" class="form-control" placeholder="Enter the class name"
-                                value="{{ old('description') }}">
+                            <input name="description" type="text" class="form-control"
+                                placeholder="Enter the tutorial description" value="{{ old('description') }}">
                             @error('description')
                                 <span class="invalid-feedback" role="alert">
                                     <strong>{{ $message }}</strong></span>
@@ -45,9 +45,9 @@
                         </div>
 
                         <div class="col-12 d-flex justify-content-end">
-                            <a href="{{ route('mentor-tutorial-index') }}" type="button" class="btn btn-primary">Go
+                            <a href="{{ route('mentor-tutorial-index') }}" type="button" class="btn btn-danger me-2">Go
                                 Back</a>
-                            <button type="submit" class="btn btn-primary">Save New Tutorial</button>
+                            <button type="submit" class="btn btn-success">Save New Tutorial</button>
                         </div>
                     </form>
 

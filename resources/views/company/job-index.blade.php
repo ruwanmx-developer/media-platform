@@ -19,7 +19,7 @@
                         @endif
                         @foreach ($jobs as $job)
                             <div class="col-4 mb-4">
-                                <div class="job-details-card">
+                                <div class="dashboard-details-card">
                                     <div class="title"><span>Title : </span>{{ $job->title }}</div>
                                     <div class="location"><span>Location : </span>{{ $job->location }}</div>
                                     <div class="type"><span>Type : </span>{{ $job->type }}</div>

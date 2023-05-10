@@ -29,7 +29,7 @@ class TutionRequestController extends Controller
         $crequest->state = "DELETED";
         try {
             $crequest->save();
-            return redirect('mentor-request-index', ['id' => $request->id])->with('message', 'Your process was successful!');
+            return response()->json(['deleted' => true]);
         } catch (\Exception $e) {
             return redirect('mentor-class-index')->with('message', 'Your process was faild! Try Again!');
         }
