@@ -281,3 +281,21 @@ body {
     height: 250px;
     background-color: #000000b9;
 }
+.class-card .quiz {
+    font-size: 16px;
+    font-weight: 600;
+}
+.class-card .answer {
+    font-size: 13px;
+    font-weight: 400;
+    background-color: #0000001c;
+    padding: 5px;
+    border-radius: 5px;
+    box-shadow: inset 2px 2px 10px #555;
+    font-style: italic;
+}
+.class-card .answer span {
+    font-size: 13px;
+    font-weight: 600;
+    font-style: normal;
+}

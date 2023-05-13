@@ -55,7 +55,7 @@ Route::get('/learn', [App\Http\Controllers\LearnController::class, 'learn'])->na
 
 Route::get('/feed', [App\Http\Controllers\FeedController::class, 'feed'])->name('feed');
 
-Route::get('/feed', [App\Http\Controllers\QuizController::class, 'feed'])->name('feed');
+Route::get('/quiz', [App\Http\Controllers\QuizController::class, 'quiz'])->name('quiz');
 
 Route::get('/mentor', [App\Http\Controllers\MentorController::class, 'mentor'])->name('mentor');
 Route::get('/add_class_request', [App\Http\Controllers\MentorController::class, 'add_class_request'])->name('add_class_request');

@@ -39,9 +39,11 @@
                         </a>
                     </div>
                     <div class="col-12 col-md-4 d-flex justify-content-end">
-                        <div class="globe-card">
-                            Q & A
-                        </div>
+                        <a href="{{ route('quiz') }}">
+                            <div class="globe-card">
+                                Q & A
+                            </div>
+                        </a>
                     </div>
                     <div class="col-12 col-md-4 d-flex justify-content-end">
                         <div class="globe-card">
