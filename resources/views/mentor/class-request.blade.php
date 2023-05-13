@@ -25,7 +25,7 @@
                             <div class="d-flex justify-content-end">
                                 <a href="{{ route('mentor-request-user', ['id' => $crequest->user->id, 'crequest' => $crequest->id]) }}"
                                     class="btn btn-success me-2">View User</a>
-                                <button onclick="deleteRequest({{ $crequest->id }})" class="btn btn-danger ">Delete</button>
+                                <button onclick="deleteRequest({{ $crequest->id }})" class="btn btn-danger">Delete</button>
                             </div>
                         </div>
                     </div>
@@ -34,13 +34,10 @@
         </div>
         <script>
             function deleteRequest(x) {
-
                 const xhr = new XMLHttpRequest();
                 const url = '/mentor-request-delete/' + x;
                 const formData = new FormData();
-
                 formData.append('id', x);
-
                 xhr.open('POST', url);
                 xhr.setRequestHeader('X-CSRF-TOKEN', $('meta[name="csrf-token"]').attr('content'));
                 xhr.onreadystatechange = function() {

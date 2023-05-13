@@ -19,9 +19,6 @@ class PagesController extends Controller
         } else if (Auth::check() && Auth::user()->role == 0) { // admin user
         } else { // unregisterd user
         }
-
-
-
         $events = Event::orderBy('created_at', 'desc')
             ->take(3)
             ->get();

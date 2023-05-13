@@ -26,7 +26,6 @@ Route::get('/mentor-request-index/{id}', [App\Http\Controllers\TutionRequestCont
 Route::post('/mentor-request-delete/{id}', [App\Http\Controllers\TutionRequestController::class, 'mentor_hide'])->name('mentor-request-delete');
 Route::get('/mentor-request-user/{id}', [App\Http\Controllers\TutionRequestController::class, 'mentor_view_user'])->name('mentor-request-user');
 
-
 // job routes
 Route::get('/company-job-index', [App\Http\Controllers\JobController::class, 'index'])->name('company-job-index');
 Route::get('/company-job-add', [App\Http\Controllers\JobController::class, 'add'])->name('company-job-add');
@@ -49,7 +48,16 @@ Route::post('/mentor-tutorial-create', [App\Http\Controllers\TutorialController:
 Route::post('/mentor-tutorial-update', [App\Http\Controllers\TutorialController::class, 'update'])->name('mentor-tutorial-update');
 Route::post('/mentor-tutorial-delete/{id}', [App\Http\Controllers\TutorialController::class, 'delete'])->name('mentor-tutorial-delete');
 
+Route::get('/internship', [App\Http\Controllers\InternshipController::class, 'internship'])->name('internship');
+Route::get('/add_job_request', [App\Http\Controllers\InternshipController::class, 'add_job_request'])->name('add_job_request');
 
-Route::get('/internship', [App\Http\Controllers\PagesController::class, 'internship'])->name('internship');
-Route::get('/learn', [App\Http\Controllers\PagesController::class, 'learn'])->name('learn');
+Route::get('/learn', [App\Http\Controllers\LearnController::class, 'learn'])->name('learn');
+
+Route::get('/feed', [App\Http\Controllers\FeedController::class, 'feed'])->name('feed');
+
+Route::get('/feed', [App\Http\Controllers\QuizController::class, 'feed'])->name('feed');
+
 Route::get('/mentor', [App\Http\Controllers\MentorController::class, 'mentor'])->name('mentor');
+Route::get('/add_class_request', [App\Http\Controllers\MentorController::class, 'add_class_request'])->name('add_class_request');
+
+Route::get('/test', [App\Http\Controllers\PagesController::class, 'test'])->name('test');

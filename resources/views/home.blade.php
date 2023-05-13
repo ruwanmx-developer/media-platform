@@ -9,9 +9,9 @@
                         <div class="title mb-5">Looking For A ?</div>
                     </div>
                     <div class="col-12 col-md-4">
-                        <a href="{{ route('internship') }}">
+                        <a href="{{ route('feed') }}">
                             <div class="globe-card">
-                                Insperation
+                                Feeds
                             </div>
                         </a>
                     </div>

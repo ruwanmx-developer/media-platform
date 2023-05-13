@@ -11,7 +11,7 @@ class Feed extends Model
     use HasFactory;
 
     protected $fillable = [
-        'source',
+        'source_url',
         'description',
         'user_id',
         'state',

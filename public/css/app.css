@@ -45,6 +45,9 @@ body {
 .btn:hover {
     box-shadow: 2px 2px 5px #000;
 }
+.btn:hover.static {
+    box-shadow: none;
+}
 .navbar {
     padding: 2px;
 }
@@ -189,7 +192,7 @@ body {
     padding-top: 30px;
 }
 /*  */
-#mentor {
+.pages {
     background-image: url("../images/mentor.jpg");
     background-size: cover;
     background-position: bottom;
@@ -199,42 +202,82 @@ body {
     padding-top: 30px;
 }
 
-#mentor .desc-wrap {
+.pages .desc-wrap {
     border-radius: 5px;
     background-color: #ffffffa5;
     padding: 10px;
     backdrop-filter: blur(5px);
     box-shadow: 2px 2px 10px #393939;
 }
-#mentor .lead {
+.pages .lead {
     font-size: 14px;
 }
-#mentor .class-card {
+/*  */
+.class-card {
     border-radius: 5px;
     background-color: #ffffffa5;
     padding: 10px;
+    height: 100%;
     backdrop-filter: blur(5px);
     box-shadow: 2px 2px 10px #393939;
     transition: all 0.5s;
     cursor: pointer;
 }
-#mentor .class-card:hover {
+.class-card:hover {
     background-color: #ffffffd9;
     box-shadow: 2px 2px 15px #000000, 2px 2px 15px #000000;
 }
-#mentor .class-card .name {
+.class-card .name {
     font-size: 18px;
     margin-bottom: 5px;
     font-weight: 600;
     text-transform: capitalize;
     font-style: italic;
 }
-#mentor .class-card {
+.class-card {
     font-size: 14px;
     font-weight: 600;
     line-height: 17px;
 }
-#mentor .class-card span {
+.class-card span {
     font-size: 14px;
     font-weight: 400;
+}
+.class-card .video-wrap {
+    width: 100%;
+    margin-top: 10px;
+}
+.class-card .video-by {
+    font-size: 12px;
+    font-weight: 500;
+    color: #393939;
+    line-height: 14px;
+}
+.class-card .video-wrap {
+    width: 100%;
+    margin-top: 10px;
+}
+.class-card video {
+    height: 250px;
+    width: 100%;
+    border-radius: 5px;
+    max-width: 100%;
+    background-color: #000000b9;
+}
+.class-card .video-det .bi {
+    font-size: 16px;
+}
+.class-card .image-wrap {
+    width: 100%;
+    margin-top: 10px;
+    overflow: hidden;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 5px;
+    background-color: #000000b9;
+}
+.class-card img {
+    height: 250px;
+    background-color: #000000b9;
 }

@@ -10,7 +10,7 @@ return new class extends Migration
     {
         Schema::create('feeds', function (Blueprint $table) {
             $table->id();
-            $table->string('source');
+            $table->string('source_url');
             $table->string('description');
             $table->unsignedBigInteger('user_id');
             $table->timestamps();

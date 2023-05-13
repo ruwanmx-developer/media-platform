@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Tutorial;
+use FFMpeg\FFMpeg;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Storage;
@@ -86,10 +87,10 @@ class TutorialController extends Controller
 
         $validatedData = $validator->validated();
 
+
         $file = $request->file('source_url');
         $newFileName = time() . Auth::user()->id . '.' . $file->getClientOriginalExtension();
         $file->storeAs('public/uploads/tutorials', $newFileName);
-
 
         $tutorial = new Tutorial();
         $tutorial->title = $validatedData['title'];
