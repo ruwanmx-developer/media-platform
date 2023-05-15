@@ -11,7 +11,7 @@
                     <div class="col-12 col-md-4">
                         <a href="{{ route('feed') }}">
                             <div class="globe-card">
-                                Feeds
+                                Feed
                             </div>
                         </a>
                     </div>
@@ -41,7 +41,7 @@
                     <div class="col-12 col-md-4 d-flex justify-content-end">
                         <a href="{{ route('quiz') }}">
                             <div class="globe-card">
-                                Q & A
+                                Discussion
                             </div>
                         </a>
                     </div>

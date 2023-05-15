@@ -33,7 +33,20 @@
 
                                         @foreach ($quiz->answers as $answer)
                                             <div class="col-12 mt-1">
-                                                <div class="answer"><span>[ADMIN] {{ $answer->user->name }} : </span>
+                                                @php
+                                                    $role = '';
+                                                    if ($answer->user->role == 0) {
+                                                        $role = 'ADMIN';
+                                                    } elseif ($answer->user->role == 1) {
+                                                        $role = 'USER';
+                                                    } elseif ($answer->user->role == 2) {
+                                                        $role = 'MENTOR';
+                                                    } elseif ($answer->user->role == 3) {
+                                                        $role = 'COMPANY';
+                                                    }
+                                                @endphp
+                                                <div class="answer"><span>[{{ $role }}] {{ $answer->user->name }} :
+                                                    </span>
                                                     {{ $answer->answer }}
                                                 </div>
                                             </div>

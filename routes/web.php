@@ -54,6 +54,9 @@ Route::get('/add_job_request', [App\Http\Controllers\InternshipController::class
 Route::get('/learn', [App\Http\Controllers\LearnController::class, 'learn'])->name('learn');
 
 Route::get('/feed', [App\Http\Controllers\FeedController::class, 'feed'])->name('feed');
+Route::get('/add-feed', [App\Http\Controllers\FeedController::class, 'add_new_feed'])->name('add-feed');
+Route::post('/feed-create', [App\Http\Controllers\FeedController::class, 'create'])->name('feed-create');
+Route::get('/my-feeds', [App\Http\Controllers\FeedController::class, 'user_feeds'])->name('my-feeds');
 
 Route::get('/quiz', [App\Http\Controllers\QuizController::class, 'quiz'])->name('quiz');
 

@@ -20,6 +20,48 @@
                         <li class="nav-item">
                             <a class="nav-link" href="{{ route('mentor-tutorial-index') }}">Tutorial Management</a>
                         </li>
+                    @elseif (Auth::user()->role == 1)
+                        <li class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggle" role="button" data-bs-toggle="dropdown"
+                                aria-expanded="false">
+                                Feed
+                            </a>
+                            <ul class="dropdown-menu">
+                                <li><a class="dropdown-item" href="{{ route('feed') }}">Go To Feed</a></li>
+                                <li><a class="dropdown-item" href="{{ route('add-feed') }}">Add New Feed</a></li>
+                                <li><a class="dropdown-item" href="{{ route('my-feeds') }}">View Your Feeds</a></li>
+                            </ul>
+                        </li>
+
+                        <li class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggle" role="button" data-bs-toggle="dropdown"
+                                aria-expanded="false">
+                                Internship
+                            </a>
+                            <ul class="dropdown-menu">
+                                <li><a class="dropdown-item" href="{{ route('internship') }}">Go To Internship</a></li>
+                                <li><a class="dropdown-item" href="#">View Your Requests</a></li>
+                            </ul>
+                        </li>
+                        <li class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggle" role="button" data-bs-toggle="dropdown"
+                                aria-expanded="false">
+                                Mentor
+                            </a>
+                            <ul class="dropdown-menu">
+                                <li><a class="dropdown-item" href="{{ route('mentor') }}">Go To Mentor</a></li>
+                                <li><a class="dropdown-item" href="#">View Your Requests</a></li>
+                            </ul>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="{{ route('learn') }}">Learn</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="{{ route('quiz') }}">Discussion</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#">Counseling</a>
+                        </li>
                     @endif
                 @else
                     <li class="nav-item">
