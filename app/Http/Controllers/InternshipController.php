@@ -45,4 +45,17 @@ class InternshipController extends Controller
             return redirect('internship')->with('message', 'Your selected internship is not available!');
         }
     }
+
+    public function user_requests()
+    {
+        if (!Auth::check()) {
+            return redirect('/')->with('message', 'You have to login to use this function!');
+        }
+        if (Auth::user()->role != 1) {
+            return redirect('/')->with('message', 'You have no access to this area!');
+        }
+        $user_requests = JobApplications::where('user_id', '=', Auth::user()->id)
+            ->with('vacancy')->with('vacancy.user')->get();
+        return view('user.my-internships', ['user_requests' => $user_requests]);
+    }
 }

@@ -40,7 +40,8 @@
                             </a>
                             <ul class="dropdown-menu">
                                 <li><a class="dropdown-item" href="{{ route('internship') }}">Go To Internship</a></li>
-                                <li><a class="dropdown-item" href="#">View Your Requests</a></li>
+                                <li><a class="dropdown-item" href="{{ route('my-internships') }}">View Your Requests</a>
+                                </li>
                             </ul>
                         </li>
                         <li class="nav-item dropdown">

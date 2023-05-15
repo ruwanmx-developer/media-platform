@@ -50,6 +50,7 @@ Route::post('/mentor-tutorial-delete/{id}', [App\Http\Controllers\TutorialContro
 
 Route::get('/internship', [App\Http\Controllers\InternshipController::class, 'internship'])->name('internship');
 Route::get('/add_job_request', [App\Http\Controllers\InternshipController::class, 'add_job_request'])->name('add_job_request');
+Route::get('/my-internships', [App\Http\Controllers\InternshipController::class, 'user_requests'])->name('my-internships');
 
 Route::get('/learn', [App\Http\Controllers\LearnController::class, 'learn'])->name('learn');
 
