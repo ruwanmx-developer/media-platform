@@ -26,9 +26,27 @@
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 
     <link rel="stylesheet" href="{{ asset('css/app.css') }}">
+
+    <style>
+        .pageLoader {
+            position: fixed;
+            top: 0;
+            left: 0;
+            height: 100%;
+            width: 100%;
+            z-index: 9999999;
+            background-color: #ffffff;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+    </style>
 </head>
 
 <body>
+    <div class="pageLoader" id="pageLoader">
+        <img src="{{ URL::asset('images/load.svg') }}" alt="">
+    </div>
     <div id="app">
         @include('partials.navigation')
         @if (session('message'))
@@ -53,6 +71,14 @@
         @endif
         @yield('content')
     </div>
+    <script>
+        $(window).on('beforeunload', function() {
+            $('#pageLoader').show();
+        });
+        $(function() {
+            $('#pageLoader').hide();
+        })
+    </script>
 </body>
 
 </html>

@@ -18,6 +18,7 @@ return new class extends Migration
             $table->string('district', 50);
             $table->string('description');
             $table->string('role');
+            $table->string('state')->default(1);
             $table->timestamp('email_verified_at')->nullable();
             $table->string('password');
             $table->rememberToken();

@@ -23,6 +23,6 @@ class TutionRequest extends Model
 
     public function tution(): BelongsTo
     {
-        return $this->belongsTo(Tution::class, 'class_is', 'id');
+        return $this->belongsTo(Tution::class, 'class_id', 'id');
     }
 }

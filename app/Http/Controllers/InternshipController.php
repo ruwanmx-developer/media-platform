@@ -19,7 +19,10 @@ class InternshipController extends Controller
         }
         $jobs = Vacancy::where('state', '=', 'ACTIVE')->with('user')->get();
         $user_requests = JobApplications::where('user_id', '=', Auth::user()->id)
-            ->where('state', '=', 'PENDING')->orwhere('state', '=', 'VIEWED')->get();
+            ->where(function ($query) {
+                $query->where('state', '=', 'PENDING')
+                    ->orWhere('state', '=', 'VIEWED');
+            })->get();
         return view('user.internship', ['jobs' => $jobs, 'user_requests' => $user_requests]);
     }
 

@@ -12,6 +12,13 @@
                 </div>
             </div>
             <div class="row gy-3 gx-3">
+                @if (count($feeds) == 0)
+                    <div class="col-12">
+                        <div class="alert alert-light">
+                            You haven't uploaded any kind of media or a feed post.
+                        </div>
+                    </div>
+                @endif
                 @foreach ($feeds as $feed)
                     <div class="col-4">
                         <div class="class-card">

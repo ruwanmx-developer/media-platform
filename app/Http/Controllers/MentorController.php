@@ -26,7 +26,10 @@ class MentorController extends Controller
         }
         $classes = Tution::where('state', '=', 'ACTIVE')->with('user')->get();
         $user_requests = TutionRequest::where('user_id', '=', Auth::user()->id)
-            ->where('state', '=', 'PENDING')->orwhere('state', '=', 'VIEWED')->get();
+            ->where(function ($query) {
+                $query->where('state', '=', 'PENDING')
+                    ->orWhere('state', '=', 'VIEWED');
+            })->get();
         return view('user.mentor', ['classes' => $classes, 'user_requests' => $user_requests]);
     }
 
@@ -51,5 +54,18 @@ class MentorController extends Controller
         } else {
             return redirect('mentor')->with('message', 'Your selected class is not available!');
         }
+    }
+
+    public function user_mentors()
+    {
+        if (!Auth::check()) {
+            return redirect('/')->with('message', 'You have to login to use this function!');
+        }
+        if (Auth::user()->role != 1) {
+            return redirect('/')->with('message', 'You have no access to this area!');
+        }
+        $user_requests = TutionRequest::where('user_id', '=', Auth::user()->id)
+            ->with('tution')->with('tution.user')->get();
+        return view('user.my-mentors', ['user_requests' => $user_requests]);
     }
 }

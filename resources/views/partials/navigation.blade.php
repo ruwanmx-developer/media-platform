@@ -51,7 +51,8 @@
                             </a>
                             <ul class="dropdown-menu">
                                 <li><a class="dropdown-item" href="{{ route('mentor') }}">Go To Mentor</a></li>
-                                <li><a class="dropdown-item" href="#">View Your Requests</a></li>
+                                <li><a class="dropdown-item" href="{{ route('my-mentors') }}">View Your Requests</a>
+                                </li>
                             </ul>
                         </li>
                         <li class="nav-item">
@@ -62,6 +63,19 @@
                         </li>
                         <li class="nav-item">
                             <a class="nav-link" href="#">Counseling</a>
+                        </li>
+                    @elseif (Auth::user()->role == 0)
+                        <li class="nav-item">
+                            <a class="nav-link" href="{{ route('company-job-index') }}">Job Management</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="{{ route('mentor-class-index') }}">Class Management</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="{{ route('mentor-tutorial-index') }}">Tutorial Management</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="{{ route('quiz') }}">Discussion</a>
                         </li>
                     @endif
                 @else

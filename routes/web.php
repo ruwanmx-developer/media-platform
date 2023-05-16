@@ -63,5 +63,6 @@ Route::get('/quiz', [App\Http\Controllers\QuizController::class, 'quiz'])->name(
 
 Route::get('/mentor', [App\Http\Controllers\MentorController::class, 'mentor'])->name('mentor');
 Route::get('/add_class_request', [App\Http\Controllers\MentorController::class, 'add_class_request'])->name('add_class_request');
+Route::get('/my-mentors', [App\Http\Controllers\MentorController::class, 'user_mentors'])->name('my-mentors');
 
 Route::get('/test', [App\Http\Controllers\PagesController::class, 'test'])->name('test');
