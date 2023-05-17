@@ -48,6 +48,15 @@ Route::post('/mentor-tutorial-create', [App\Http\Controllers\TutorialController:
 Route::post('/mentor-tutorial-update', [App\Http\Controllers\TutorialController::class, 'update'])->name('mentor-tutorial-update');
 Route::post('/mentor-tutorial-delete/{id}', [App\Http\Controllers\TutorialController::class, 'delete'])->name('mentor-tutorial-delete');
 
+//event
+Route::get('/admin-event-index', [App\Http\Controllers\EventController::class, 'index'])->name('admin-event-index');
+Route::get('/admin-event-add', [App\Http\Controllers\EventController::class, 'add'])->name('admin-event-add');
+Route::get('/admin-event-edit/{id}', [App\Http\Controllers\EventController::class, 'edit'])->name('admin-event-edit');
+Route::post('/admin-event-create', [App\Http\Controllers\EventController::class, 'create'])->name('admin-event-create');
+Route::post('/admin-event-update', [App\Http\Controllers\EventController::class, 'update'])->name('admin-event-update');
+Route::post('/admin-event-delete/{id}', [App\Http\Controllers\EventController::class, 'delete'])->name('admin-event-delete');
+
+
 Route::get('/internship', [App\Http\Controllers\InternshipController::class, 'internship'])->name('internship');
 Route::get('/add_job_request', [App\Http\Controllers\InternshipController::class, 'add_job_request'])->name('add_job_request');
 Route::get('/my-internships', [App\Http\Controllers\InternshipController::class, 'user_requests'])->name('my-internships');

@@ -66,6 +66,9 @@
                         </li>
                     @elseif (Auth::user()->role == 0)
                         <li class="nav-item">
+                            <a class="nav-link" href="{{ route('admin-event-index') }}">Event Management</a>
+                        </li>
+                        <li class="nav-item">
                             <a class="nav-link" href="{{ route('company-job-index') }}">Job Management</a>
                         </li>
                         <li class="nav-item">
