@@ -7,6 +7,9 @@ body {
     margin: 0;
     padding: 0;
 }
+.no-link {
+    text-decoration: none;
+}
 #page_toast img {
     height: 25px;
 }
@@ -59,7 +62,7 @@ body {
     margin-right: 30px;
 }
 #home {
-    background-image: url("../images/index.jpg");
+    background-image: url("../images/mentor.jpg");
     background-size: cover;
     background-position: bottom;
     background-repeat: no-repeat;
@@ -86,17 +89,52 @@ body {
     border-radius: 100px;
     backdrop-filter: blur(3px);
     display: flex;
+    position: relative;
     align-items: center;
     justify-content: center;
     box-shadow: 2px 2px 5px #000000, -2px -2px 5px #ffffff;
     color: #fff;
-    font-size: 25px;
+    font-size: 28px;
     font-weight: 600;
     cursor: pointer;
+    text-shadow: 0 0 10px #000;
     transition: all 0.5s;
+    overflow: hidden;
 }
 #home .globe-card:hover {
     box-shadow: 2px 2px 15px #000000, 2px 2px 15px #000000;
+}
+#home .globe-card .g-c {
+    position: absolute;
+    z-index: -10;
+    left: -122px;
+    top: -10px;
+    width: 250px;
+    height: 100px;
+    transform: rotateZ(-45deg);
+    transition: all 0.5s;
+}
+#home .globe-card:hover .g-c {
+    top: 9px;
+    left: -68px;
+}
+#home .globe-card .g-c.g-c-1 {
+    background-color: green;
+}
+#home .globe-card .g-c.g-c-2 {
+    background-color: rgb(0, 100, 128);
+}
+#home .globe-card .g-c.g-c-3 {
+    background-color: rgb(17, 0, 128);
+}
+#home .globe-card .g-c.g-c-4 {
+    background-color: rgb(119, 0, 128);
+}
+#home .globe-card .g-c.g-c-5 {
+    background-color: rgb(128, 0, 11);
+}
+#home .globe-card .g-c.g-c-6 {
+    background-color: rgb(128, 115, 0);
 }
 
 #register {

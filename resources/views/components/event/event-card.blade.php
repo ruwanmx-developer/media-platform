@@ -16,8 +16,5 @@
                 {{ $event->organizer }}
             </div>
         </div>
-        <div class="col-6">
-            <img src="{{ asset('uploads/events/' . $event->image) }}" alt="">
-        </div>
     </div>
 </div>
