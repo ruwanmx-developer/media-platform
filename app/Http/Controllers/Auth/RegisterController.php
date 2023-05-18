@@ -6,8 +6,10 @@ use App\Http\Controllers\Controller;
 use App\Providers\RouteServiceProvider;
 use App\Models\User;
 use Illuminate\Foundation\Auth\RegistersUsers;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Validator;
+use Illuminate\Support\Str;
 
 class RegisterController extends Controller
 {
@@ -58,17 +60,17 @@ class RegisterController extends Controller
             'district' => ['required', 'string'],
             'description' => ['required', 'string'],
             'role' => ['required', 'string'],
+            'image' => 'required|image|mimes:jpeg,png,jpg,gif|max:2048',
         ]);
     }
 
-    /**
-     * Create a new user instance after a valid registration.
-     *
-     * @param  array  $data
-     * @return \App\Models\User
-     */
     protected function create(array $data)
     {
+        $file = $data['image'];
+        $name = Str::before($data['email'], '@');
+        $newFileName = time() . $name . '.' . $file->getClientOriginalExtension();
+        $file->storeAs('public/uploads/profile', $newFileName);
+
         return User::create([
             'name' => $data['name'],
             'email' => $data['email'],
@@ -76,6 +78,7 @@ class RegisterController extends Controller
             'mobile' => $data['mobile'],
             'district' => $data['district'],
             'description' => $data['description'],
+            'image' => $newFileName,
             'role' => $data['role'],
             'password' => Hash::make($data['password']),
         ]);

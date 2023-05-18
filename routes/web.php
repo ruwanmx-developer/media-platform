@@ -68,6 +68,7 @@ Route::get('/add-feed', [App\Http\Controllers\FeedController::class, 'add_new_fe
 Route::post('/feed-create', [App\Http\Controllers\FeedController::class, 'create'])->name('feed-create');
 Route::get('/my-feeds', [App\Http\Controllers\FeedController::class, 'user_feeds'])->name('my-feeds');
 Route::post('/add-comment/{id}', [App\Http\Controllers\FeedController::class, 'add_comment'])->name('add-comment');
+Route::get('/view-comment/{id}', [App\Http\Controllers\FeedController::class, 'view_comment'])->name('view-comment');
 
 Route::get('/quiz', [App\Http\Controllers\QuizController::class, 'quiz'])->name('quiz');
 Route::post('/quiz-create', [App\Http\Controllers\QuizController::class, 'create'])->name('quiz-create');
@@ -77,4 +78,5 @@ Route::get('/mentor', [App\Http\Controllers\MentorController::class, 'mentor'])-
 Route::get('/add_class_request', [App\Http\Controllers\MentorController::class, 'add_class_request'])->name('add_class_request');
 Route::get('/my-mentors', [App\Http\Controllers\MentorController::class, 'user_mentors'])->name('my-mentors');
 
-Route::get('/test', [App\Http\Controllers\PagesController::class, 'test'])->name('test');
+Route::get('/view-event/{id}', [App\Http\Controllers\PagesController::class, 'event'])->name('view-event');
+Route::get('/events', [App\Http\Controllers\PagesController::class, 'events'])->name('events');

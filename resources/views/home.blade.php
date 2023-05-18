@@ -64,7 +64,7 @@
         <section class="section-2">
             <div class="event-wrap">
                 <div class="container-fluid">
-                    <div class="row gy-3 gx-3 ">
+                    <div class="row gy-3 gx-3 align-items-end">
                         <div class="col-12">
                             <div class="s-title">Events</div>
                         </div>
@@ -79,6 +79,21 @@
                         @foreach ($events as $event)
                             <div class="col-3">@include('components.event.event-card')</div>
                         @endforeach
+
+
+                        @if (!count($events) == 0)
+                            <div class="col-3">
+                                <a class="no-link" href="{{ route('events') }}">
+                                    <div class="event-card x">
+                                        <div class="title w-100">
+                                            View All Events
+                                        </div>
+                                    </div>
+                                </a>
+                            </div>
+                        @endif
+
+
                     </div>
 
                 </div>

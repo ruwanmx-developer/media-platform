@@ -5,6 +5,7 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
+use Illuminate\Database\Eloquent\Relations\HasMany;
 
 class Feed extends Model
 {
@@ -21,5 +22,10 @@ class Feed extends Model
 
     {
         return $this->belongsTo(User::class, 'user_id', 'id');
+    }
+
+    public function comments(): HasMany
+    {
+        return $this->HasMany(FeedComment::class);
     }
 }

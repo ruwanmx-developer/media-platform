@@ -49,4 +49,22 @@ class PagesController extends Controller
 
         return view('user.learn');
     }
+
+    public function event(Request $request)
+    {
+        if (!Auth::check()) {
+            return redirect('/')->with('message', 'You have to login to use this function!');
+        }
+        $event = Event::find($request->id);
+        return view('user.event', ['event' => $event]);
+    }
+
+    public function events(Request $request)
+    {
+        if (!Auth::check()) {
+            return redirect('/')->with('message', 'You have to login to use this function!');
+        }
+        $events = Event::all();
+        return view('user.events', ['events' => $events]);
+    }
 }

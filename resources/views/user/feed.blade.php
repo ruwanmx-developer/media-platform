@@ -22,43 +22,54 @@
             <div class="row gy-3 gx-3">
                 @foreach ($feeds as $feed)
                     <div class="col-4">
-                        <div class="class-card" onclick="addComment({{ $feed->id }})">
+                        @if (Auth::user()->role != 1)
+                            <div class="class-card" onclick="addComment({{ $feed->id }})">
+                            @else
+                                <div class="class-card" onclick="viewComment({{ $feed->id }})">
+                        @endif
+
+                        @if ($user_comments != null)
                             <input type="hidden" id="ucomment_{{ $feed->id }}"
-                                value="{{ $user_comments->firstWhere('feed_id', '=', $feed->id)->comment }}">
-                            <div class="row video-det">
-                                <div class="col-12">
-                                    <div class="name">{{ $feed->user->name }}</div>
-                                </div>
-                                <div class="col-10">
-                                    <div class="video-by feed-desc">By : {{ $feed->description }}</div>
-                                </div>
-                                {{-- <div class="col-2 d-flex justify-content-end">
+                                value="{{ $user_comments->firstWhere('feed_id', '=', $feed->id) != null ? $user_comments->firstWhere('feed_id', '=', $feed->id)->comment : '' }}">
+                        @endif
+                        <div class="row video-det">
+                            <div class="col-12">
+                                <div class="name">{{ $feed->user->name }}</div>
+                            </div>
+                            <div class="col-10">
+                                <div class="video-by feed-desc">By : {{ $feed->description }}</div>
+                            </div>
+                            {{-- <div class="col-2 d-flex justify-content-end">
                                     <i class="bi bi-hand-thumbs-up-fill liked"></i>
                                 </div> --}}
-                            </div>
-                            @php
-                                $isVideo = substr($feed->source_url, -4) === '.mp4';
-                            @endphp
-                            @if ($isVideo)
-                                <div class="video-wrap">
-                                    <video class="video" controls>
-                                        <source src="{{ asset('storage/uploads/feeds/' . $feed->source_url) }} "
-                                            type="video/mp4">
-                                        Your browser does not support the video tag.
-                                    </video>
-                                </div>
-                            @else
-                                <div class="image-wrap">
-                                    <img src="{{ asset('storage/uploads/feeds/' . $feed->source_url) }} " alt="">
-                                </div>
-                            @endif
                         </div>
+                        @php
+                            $isVideo = substr($feed->source_url, -4) === '.mp4';
+                        @endphp
+                        @if ($isVideo)
+                            <div class="video-wrap">
+                                <video class="video" controls>
+                                    <source src="{{ asset('storage/uploads/feeds/' . $feed->source_url) }} "
+                                        type="video/mp4">
+                                    Your browser does not support the video tag.
+                                </video>
+                            </div>
+                        @else
+                            <div class="image-wrap">
+                                <img src="{{ asset('storage/uploads/feeds/' . $feed->source_url) }} " alt="">
+                            </div>
+                        @endif
                     </div>
-                @endforeach
             </div>
+            @endforeach
         </div>
     </div>
+    </div>
     <script>
+        function viewComment(x) {
+            document.location.href = "view-comment/" + x;
+        }
+
         function addComment(x) {
             let cmt = document.getElementById("ucomment_" + x).value;
             console.log(cmt)

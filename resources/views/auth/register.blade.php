@@ -8,11 +8,11 @@
             <div class="container">
                 <div class="row justify-content-center">
                     <div class="col-md-5">
-                        <form action="{{ route('register') }}" class="reg-form" method="POST">
+                        <form action="{{ route('register') }}" class="reg-form" method="POST" enctype="multipart/form-data">
                             @csrf
                             <div class="form-caption">Register Form</div>
                             <div class="mb-3">
-                                <input name="email" type="email"
+                                <input name="email" type="email" value="{{ old('email') }}"
                                     class="form-control @error('email') is-invalid @enderror"
                                     placeholder="Enter your email address">
 
@@ -42,7 +42,7 @@
                                 </div>
                             </div>
                             <div class="mb-3">
-                                <input name="image" type="file"
+                                <input name="image" type="file" value="{{ old('image') }}"
                                     class="form-control @error('image') is-invalid @enderror">
                                 @error('image')
                                     <span class="invalid-feedback" role="alert">
@@ -63,7 +63,7 @@
                                 @enderror
                             </div>
                             <div class="mb-3">
-                                <input name="name" type="text"
+                                <input name="name" type="text" value="{{ old('name') }}"
                                     class="form-control  @error('name') is-invalid @enderror"
                                     placeholder="Enter Account/Comapny Name">
                                 @error('name')
@@ -72,7 +72,7 @@
                                 @enderror
                             </div>
                             <div class="mb-3">
-                                <input name="address" type="text"
+                                <input name="address" type="text" value="{{ old('address') }}"
                                     class="form-control  @error('address') is-invalid @enderror"
                                     placeholder="Enter Account/Comapny Address">
                                 @error('address')
@@ -81,7 +81,7 @@
                                 @enderror
                             </div>
                             <div class="mb-3">
-                                <input name="description" type="text"
+                                <input name="description" type="text" value="{{ old('description') }}"
                                     class="form-control  @error('description') is-invalid @enderror"
                                     placeholder="Enter Account/Comapny Description">
                                 @error('description')
@@ -91,7 +91,7 @@
                             </div>
 
                             <div class="mb-3">
-                                <input name="mobile" type="text"
+                                <input name="mobile" type="text" value="{{ old('mobile') }}"
                                     class="form-control  @error('mobile') is-invalid @enderror"
                                     placeholder="Enter Account/Comapny Mobile">
                                 @error('mobile')
@@ -100,7 +100,7 @@
                                 @enderror
                             </div>
                             <div class="mb-3">
-                                <select name="district" class="form-select  @error('district') is-invalid @enderror">
+                                <select name="district" class="form-select   @error('district') is-invalid @enderror">
                                     <option selected>Select your District</option>
                                     @foreach (['Ampara', 'Anuradhapura', 'Badulla', 'Batticaloa', 'Colombo', 'Galle', 'Gampaha', 'Hambantota', 'Jaffna', 'Kalutara', 'Kandy', 'Kegalle', 'Kilinochchi', 'Kurunegala', 'Mannar', 'Matale', 'Matara', 'Moneragala', 'Mullaitivu', 'Nuwara Eliya', 'Polonnaruwa', 'Puttalam', 'Ratnapura', 'Trincomalee', 'Vavuniya'] as $location)
                                         <option value="{{ $location }}"
