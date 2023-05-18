@@ -106,6 +106,9 @@
             </ul>
             @if (Auth::user() != null)
                 <div class="d-flex">
+                    <div class="d-flex">
+                        <a class="btn btn-primary me-2" href="{{ route('profile') }}">Profile</a>
+                    </div>
                     <form action="{{ route('logout') }}" method="post">
                         @csrf
                         <button type="submit" class="btn btn-danger">Logout</button>

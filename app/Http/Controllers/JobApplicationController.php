@@ -2,7 +2,10 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Answer;
+use App\Models\Feed;
 use App\Models\JobApplications;
+use App\Models\Question;
 use App\Models\User;
 use Illuminate\Http\Request;
 
@@ -20,7 +23,16 @@ class JobApplicationController extends Controller
         $application = JobApplications::where('id', '=', $request->application)->first();
         $application->state = "VIEWED";
         $application->save();
-        return view('company.job-application-user', ['user' => $user]);
+
+        $feed_count = count(Feed::where('user_id', '=', $request->id)->get());
+        $quiz_count = count(Question::where('user_id', '=', $request->id)->get());
+        $anaswer_count = count(Answer::where('user_id', '=', $request->id)->get());
+
+        return view('user.view-profile')
+            ->with('user', $user)
+            ->with('feed_count', $feed_count)
+            ->with('quiz_count', $quiz_count)
+            ->with('anaswer_count', $anaswer_count);
     }
 
     public function company_hide(Request $request)

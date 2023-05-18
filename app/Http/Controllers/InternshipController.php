@@ -14,9 +14,6 @@ class InternshipController extends Controller
         if (!Auth::check()) {
             return redirect('/')->with('message', 'You have to login to use this function!');
         }
-        if (Auth::user()->role != 1) {
-            return redirect('/')->with('message', 'You have no access to this area!');
-        }
         $jobs = Vacancy::where('state', '=', 'ACTIVE')->with('user')->get();
         $user_requests = JobApplications::where('user_id', '=', Auth::user()->id)
             ->where(function ($query) {

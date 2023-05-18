@@ -46,16 +46,18 @@
                                 <div class="col-8">
                                     <div class="day">By : {{ $job->user->name }}</div>
                                 </div>
-                                <div class="col-4 d-flex justify-content-end">
-                                    @if ($user_requests->where('vacancy_id', '=', $job->id)->where('state', '=', 'PENDING')->first())
-                                        <a class="btn btn-warning static">Requested</a>
-                                    @elseif ($user_requests->where('vacancy_id', '=', $job->id)->where('state', '=', 'VIEWED')->first())
-                                        <a class="btn btn-success static">Viewed</a>
-                                    @else
-                                        <a href="{{ route('add_job_request', ['id' => $job->id]) }}"
-                                            class="btn btn-primary">Request</a>
-                                    @endif
-                                </div>
+                                @if (Auth::user()->role == 1)
+                                    <div class="col-4 d-flex justify-content-end">
+                                        @if ($user_requests->where('vacancy_id', '=', $job->id)->where('state', '=', 'PENDING')->first())
+                                            <a class="btn btn-warning static">Requested</a>
+                                        @elseif ($user_requests->where('vacancy_id', '=', $job->id)->where('state', '=', 'VIEWED')->first())
+                                            <a class="btn btn-success static">Viewed</a>
+                                        @else
+                                            <a href="{{ route('add_job_request', ['id' => $job->id]) }}"
+                                                class="btn btn-primary">Request</a>
+                                        @endif
+                                    </div>
+                                @endif
                             </div>
                         </div>
                     </div>

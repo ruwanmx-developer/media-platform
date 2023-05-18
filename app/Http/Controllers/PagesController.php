@@ -2,7 +2,17 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Answer;
 use App\Models\Event;
+use App\Models\Feed;
+use App\Models\FeedComment;
+use App\Models\JobApplications;
+use App\Models\Question;
+use App\Models\Tution;
+use App\Models\TutionRequest;
+use App\Models\Tutorial;
+use App\Models\User;
+use App\Models\Vacancy;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 
@@ -10,19 +20,9 @@ class PagesController extends Controller
 {
     public function index()
     {
-
-        if (Auth::check() && Auth::user()->role == 3) { // job user
-            return redirect('/company-dashboard');
-        } else if (Auth::check() && Auth::user()->role == 2) { // mentor user
-            return redirect('/mentor-dashboard');
-        } else if (Auth::check() && Auth::user()->role == 1) { // common user
-        } else if (Auth::check() && Auth::user()->role == 0) { // admin user
-        } else { // unregisterd user
-        }
         $events = Event::orderBy('created_at', 'desc')
             ->take(4)
             ->get();
-
         return view('home', ['events' => $events]);
     }
 
@@ -42,11 +42,6 @@ class PagesController extends Controller
         if (!Auth::check()) {
             return redirect('/')->with('message', 'You have to login to use this function!');
         }
-        if (Auth::user()->role != 1) {
-            return redirect('/')->with('message', 'You have no access to this area!');
-        }
-
-
         return view('user.learn');
     }
 
@@ -66,5 +61,69 @@ class PagesController extends Controller
         }
         $events = Event::all();
         return view('user.events', ['events' => $events]);
+    }
+
+    public function profile(Request $request)
+    {
+        if (!Auth::check()) {
+            return redirect('/')->with('message', 'You have to login to use this function!');
+        }
+        $user = User::find(Auth::user()->id);
+        //admin
+        $feed_comment_count = count(FeedComment::where('user_id', '=', Auth::user()->id)->get());
+        $event_count = count(Event::all());
+        $internship_count = count(Vacancy::where('user_id', '=', Auth::user()->id)->get());
+        $tuition_count = count(Tution::where('user_id', '=', Auth::user()->id)->get());
+        $tutorial_count = count(Tutorial::where('user_id', '=', Auth::user()->id)->get());
+        // user
+        $feed_count = count(Feed::where('user_id', '=', Auth::user()->id)->get());
+        $internship_request_count = count(JobApplications::where('user_id', '=', Auth::user()->id)->get());
+        $tuition_request_count = count(TutionRequest::where('user_id', '=', Auth::user()->id)->get());
+        $quiz_count = count(Question::where('user_id', '=', Auth::user()->id)->get());
+        $anaswer_count = count(Answer::where('user_id', '=', Auth::user()->id)->get());
+
+        return view('user.profile')
+            ->with('user', $user)
+            ->with('feed_count', $feed_count)
+            ->with('internship_request_count', $internship_request_count)
+            ->with('tuition_request_count', $tuition_request_count)
+            ->with('quiz_count', $quiz_count)
+            ->with('anaswer_count', $anaswer_count)
+            ->with('feed_comment_count', $feed_comment_count)
+            ->with('event_count', $event_count)
+            ->with('internship_count', $internship_count)
+            ->with('tuition_count', $tuition_count)
+            ->with('tutorial_count', $tutorial_count);
+    }
+
+    public function view_profile(Request $request)
+    {
+        if (!Auth::check()) {
+            return redirect('/')->with('message', 'You have to login to use this function!');
+        }
+        $user = User::find($request->id);
+        $feed_comment_count = count(FeedComment::where('user_id', '=', Auth::user()->id)->get());
+        $event_count = count(Event::all());
+        $internship_count = count(Vacancy::where('user_id', '=', Auth::user()->id)->get());
+        $tuition_count = count(Tution::where('user_id', '=', Auth::user()->id)->get());
+        $tutorial_count = count(Tutorial::where('user_id', '=', Auth::user()->id)->get());
+        $feed_count = count(Feed::where('user_id', '=', Auth::user()->id)->get());
+        $internship_request_count = count(JobApplications::where('user_id', '=', Auth::user()->id)->get());
+        $tuition_request_count = count(TutionRequest::where('user_id', '=', Auth::user()->id)->get());
+        $quiz_count = count(Question::where('user_id', '=', Auth::user()->id)->get());
+        $anaswer_count = count(Answer::where('user_id', '=', Auth::user()->id)->get());
+
+        return view('user.view-profile')
+            ->with('user', $user)
+            ->with('feed_count', $feed_count)
+            ->with('internship_request_count', $internship_request_count)
+            ->with('tuition_request_count', $tuition_request_count)
+            ->with('quiz_count', $quiz_count)
+            ->with('anaswer_count', $anaswer_count)
+            ->with('feed_comment_count', $feed_comment_count)
+            ->with('event_count', $event_count)
+            ->with('internship_count', $internship_count)
+            ->with('tuition_count', $tuition_count)
+            ->with('tutorial_count', $tutorial_count);
     }
 }

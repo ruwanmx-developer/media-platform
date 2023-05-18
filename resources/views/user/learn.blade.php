@@ -30,11 +30,11 @@
                                     <div class="video-by">By : {{ $tutorial->user->name }}</div>
                                 </div>
                                 <div class="col-3 d-flex justify-content-start">
-                                    <i class="bi bi-eye-fill"></i>&nbsp;&nbsp;200
+                                    <i class="bi bi-eye-fill"></i>&nbsp;&nbsp;{{ $tutorial->views }}
                                 </div>
-                                <div class="col-1 d-flex justify-content-end">
+                                {{-- <div class="col-1 d-flex justify-content-end">
                                     <i class="bi bi-hand-thumbs-up-fill"></i>
-                                </div>
+                                </div> --}}
                             </div>
                             <div class="video-wrap">
                                 <video class="video" controls>

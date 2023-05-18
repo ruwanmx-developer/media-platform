@@ -63,6 +63,9 @@ Route::get('/my-internships', [App\Http\Controllers\InternshipController::class,
 
 Route::get('/learn', [App\Http\Controllers\LearnController::class, 'learn'])->name('learn');
 
+Route::get('/profile', [App\Http\Controllers\PagesController::class, 'profile'])->name('profile');
+Route::get('/view-profile/{id}', [App\Http\Controllers\PagesController::class, 'view_profile'])->name('view-profile');
+
 Route::get('/feed', [App\Http\Controllers\FeedController::class, 'feed'])->name('feed');
 Route::get('/add-feed', [App\Http\Controllers\FeedController::class, 'add_new_feed'])->name('add-feed');
 Route::post('/feed-create', [App\Http\Controllers\FeedController::class, 'create'])->name('feed-create');
