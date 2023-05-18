@@ -26,11 +26,11 @@ return new class extends Migration
         });
 
         User::create([
-            'name' => 'John Doe',
+            'name' => 'Mix Media',
             'email' => 'admin@gmail.com',
             'address' => '123 Main St',
-            'mobile' => '1234567890',
-            'district' => 'New York',
+            'mobile' => '0754378234',
+            'district' => 'Kalutara',
             'description' => 'Lorem ipsum dolor sit amet',
             'role' => '0',
             'password' => bcrypt('admin123@'),

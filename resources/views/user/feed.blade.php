@@ -22,18 +22,19 @@
             <div class="row gy-3 gx-3">
                 @foreach ($feeds as $feed)
                     <div class="col-4">
-                        <div class="class-card">
-
+                        <div class="class-card" onclick="addComment({{ $feed->id }})">
+                            <input type="hidden" id="ucomment_{{ $feed->id }}"
+                                value="{{ $user_comments->firstWhere('feed_id', '=', $feed->id)->comment }}">
                             <div class="row video-det">
                                 <div class="col-12">
                                     <div class="name">{{ $feed->user->name }}</div>
                                 </div>
                                 <div class="col-10">
-                                    <div class="video-by">By : {{ $feed->description }}</div>
+                                    <div class="video-by feed-desc">By : {{ $feed->description }}</div>
                                 </div>
-                                <div class="col-2 d-flex justify-content-end">
-                                    <i class="bi bi-hand-thumbs-up-fill"></i>
-                                </div>
+                                {{-- <div class="col-2 d-flex justify-content-end">
+                                    <i class="bi bi-hand-thumbs-up-fill liked"></i>
+                                </div> --}}
                             </div>
                             @php
                                 $isVideo = substr($feed->source_url, -4) === '.mp4';
@@ -57,4 +58,46 @@
             </div>
         </div>
     </div>
+    <script>
+        function addComment(x) {
+            let cmt = document.getElementById("ucomment_" + x).value;
+            console.log(cmt)
+            if (cmt != "") {
+                Swal.fire({
+                    title: 'Already Commented',
+                    text: cmt,
+                    icon: 'warning',
+                    confirmButtonText: 'OK'
+                })
+            } else {
+                Swal.fire({
+                    title: "Add Comment",
+                    icon: 'info',
+                    input: 'text',
+                    showCancelButton: true,
+                    confirmButtonColor: '#3085d6',
+                    cancelButtonColor: '#d33',
+                    confirmButtonText: 'Save Comment',
+                    preConfirm: (login) => {
+                        const xhr = new XMLHttpRequest();
+                        const url = '/add-comment/' + x;
+                        const formData = new FormData();
+                        formData.append('feed_id', x);
+                        formData.append('comment', login);
+                        xhr.open('POST', url);
+                        xhr.setRequestHeader('X-CSRF-TOKEN', $('meta[name="csrf-token"]').attr('content'));
+                        xhr.onreadystatechange = function() {
+                            if (this.readyState === 4 && this.status === 200) {
+                                var response = JSON.parse(this.responseText);
+                                if (response.added == true) {
+                                    location.reload();
+                                }
+                            }
+                        };
+                        xhr.send(formData);
+                    },
+                })
+            }
+        }
+    </script>
 @endsection

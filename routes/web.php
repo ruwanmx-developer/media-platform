@@ -67,6 +67,7 @@ Route::get('/feed', [App\Http\Controllers\FeedController::class, 'feed'])->name(
 Route::get('/add-feed', [App\Http\Controllers\FeedController::class, 'add_new_feed'])->name('add-feed');
 Route::post('/feed-create', [App\Http\Controllers\FeedController::class, 'create'])->name('feed-create');
 Route::get('/my-feeds', [App\Http\Controllers\FeedController::class, 'user_feeds'])->name('my-feeds');
+Route::post('/add-comment/{id}', [App\Http\Controllers\FeedController::class, 'add_comment'])->name('add-comment');
 
 Route::get('/quiz', [App\Http\Controllers\QuizController::class, 'quiz'])->name('quiz');
 Route::post('/quiz-create', [App\Http\Controllers\QuizController::class, 'create'])->name('quiz-create');

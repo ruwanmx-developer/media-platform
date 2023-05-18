@@ -114,7 +114,10 @@
                 </div>
             @else
                 <div class="d-flex">
-                    <a class="btn btn-primary" href="{{ route('login') }}">Login</a>
+                    <a class="btn btn-primary me-2" href="{{ route('login') }}">Login</a>
+                </div>
+                <div class="d-flex">
+                    <a class="btn btn-primary" href="{{ route('register') }}">Register</a>
                 </div>
             @endif
 

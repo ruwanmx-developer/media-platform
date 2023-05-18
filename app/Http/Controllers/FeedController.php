@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Feed;
+use App\Models\FeedComment;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Validator;
@@ -15,7 +16,8 @@ class FeedController extends Controller
             return redirect('/')->with('message', 'You have to login to use this function!');
         }
         $feeds = Feed::with('user')->get();
-        return view('user.feed', ['feeds' => $feeds]);
+        $user_comments = FeedComment::where('user_id', '=', Auth::user()->id)->get();
+        return view('user.feed', ['feeds' => $feeds, 'user_comments' => $user_comments]);
     }
 
     public function add_new_feed()
@@ -39,6 +41,22 @@ class FeedController extends Controller
         }
         $feeds = Feed::with('user')->where('user_id', '=', Auth::user()->id)->get();
         return view('user.my-feeds', ['feeds' => $feeds]);
+    }
+
+    public function add_comment(Request $request)
+    {
+
+        $comment = new FeedComment();
+        $comment->feed_id = $request->feed_id;
+        $comment->comment = $request->comment;
+        $comment->user_id = Auth::user()->id;
+
+        try {
+            $comment->save();
+            return response()->json(['added' => true]);
+        } catch (\Exception $e) {
+            return response()->json(['added' => false]);
+        }
     }
 
     public function create(Request $request)

@@ -42,6 +42,14 @@
                                 </div>
                             </div>
                             <div class="mb-3">
+                                <input name="image" type="file"
+                                    class="form-control @error('image') is-invalid @enderror">
+                                @error('image')
+                                    <span class="invalid-feedback" role="alert">
+                                        <strong>{{ $message }}</strong></span>
+                                @enderror
+                            </div>
+                            <div class="mb-3">
                                 <select name="role" id="acc_type"
                                     class="form-select  @error('role') is-invalid @enderror" onchange="changeFields()">
                                     <option selected>Select the Account Type</option>
@@ -81,29 +89,31 @@
                                         <strong>{{ $message }}</strong></span>
                                 @enderror
                             </div>
-                            <div class="row mb-3">
-                                <div class="col-6">
-                                    <input name="mobile" type="text"
-                                        class="form-control  @error('mobile') is-invalid @enderror"
-                                        placeholder="Enter Account/Comapny Mobile">
-                                    @error('mobile')
-                                        <span class="invalid-feedback" role="alert">
-                                            <strong>{{ $message }}</strong></span>
-                                    @enderror
-                                </div>
-                                <div class="col-6">
-                                    <select name="district" class="form-select  @error('district') is-invalid @enderror">
-                                        <option selected>Select your District</option>
-                                        <option value="1">Common User</option>
-                                        <option value="2">Mentor</option>
-                                        <option value="3">Company</option>
-                                    </select>
-                                    @error('district')
-                                        <span class="invalid-feedback" role="alert">
-                                            <strong>{{ $message }}</strong></span>
-                                    @enderror
-                                </div>
+
+                            <div class="mb-3">
+                                <input name="mobile" type="text"
+                                    class="form-control  @error('mobile') is-invalid @enderror"
+                                    placeholder="Enter Account/Comapny Mobile">
+                                @error('mobile')
+                                    <span class="invalid-feedback" role="alert">
+                                        <strong>{{ $message }}</strong></span>
+                                @enderror
                             </div>
+                            <div class="mb-3">
+                                <select name="district" class="form-select  @error('district') is-invalid @enderror">
+                                    <option selected>Select your District</option>
+                                    @foreach (['Ampara', 'Anuradhapura', 'Badulla', 'Batticaloa', 'Colombo', 'Galle', 'Gampaha', 'Hambantota', 'Jaffna', 'Kalutara', 'Kandy', 'Kegalle', 'Kilinochchi', 'Kurunegala', 'Mannar', 'Matale', 'Matara', 'Moneragala', 'Mullaitivu', 'Nuwara Eliya', 'Polonnaruwa', 'Puttalam', 'Ratnapura', 'Trincomalee', 'Vavuniya'] as $location)
+                                        <option value="{{ $location }}"
+                                            {{ old('location') == $location ? 'selected' : '' }}>{{ $location }}
+                                        </option>
+                                    @endforeach
+                                </select>
+                                @error('district')
+                                    <span class="invalid-feedback" role="alert">
+                                        <strong>{{ $message }}</strong></span>
+                                @enderror
+                            </div>
+
 
                             <div>
                                 <input type="submit" class="btn btn-primary w-100" value="REGISTER">
