@@ -8,13 +8,15 @@
 
 * {
     font-family: "Poppins", sans-serif !important;
+    user-select: none;
 }
 body {
     margin: 0;
     padding: 0;
-    background-image: url("../images/mini_bg.jpg");
+    /* background-image: url("../images/mini_bg.jpg"); */
+    background-image: url("https://img.freepik.com/free-photo/close-up-sound-engineer-studio-with-equipment_1157-47928.jpg?w=1380&t=st=1684400082~exp=1684400682~hmac=657119ab8e67e74a28c0cffc5328ee49a86c5ca28d4c05daeb19df8f260db5c1");
     background-size: cover;
-    background-position: top;
+    background-position: center;
     background-repeat: no-repeat;
     background-attachment: fixed;
 }
@@ -23,115 +25,6 @@ body {
 }
 #page_toast img {
     height: 25px;
-}
-#dashboard {
-    min-height: calc(100vh - 54px);
-    padding-top: 30px;
-}
-#dashboard form {
-    background: #ffffff5e;
-    backdrop-filter: blur(5px);
-    border-radius: 5px;
-    padding: 10px;
-    box-shadow: 2px 2px 10px #393939;
-}
-#dashboard .form-title {
-    font-size: 28px;
-    font-weight: 600;
-    margin-bottom: 20px;
-}
-#dashboard form .input-group-text {
-    width: 250px;
-    font-weight: 600;
-}
-.btn {
-    padding: 3px 10px !important;
-    font-size: 14px;
-    text-transform: uppercase;
-    font-weight: 600;
-    transition: all 0.2s;
-    box-shadow: 2px 2px 5px #000;
-}
-.btn:hover {
-    box-shadow: 2px 2px 5px #000;
-}
-.btn:hover.static {
-    box-shadow: none;
-}
-.navbar {
-    padding: 2px;
-}
-.navbar img {
-    height: 40px;
-    margin-right: 20px;
-}
-.navbar .nav-item {
-    margin-right: 30px;
-}
-#home {
-    min-height: calc(100vh - 54px);
-}
-#home .section-1 {
-    min-height: calc(75vh - 56px);
-    display: flex;
-    align-items: center;
-}
-#home .section-2 .s-title {
-    color: #fff;
-    font-size: 28px;
-}
-#home .section-1 .title {
-    font-size: 60px;
-    font-weight: 700;
-    color: #fff;
-    text-transform: uppercase;
-    text-align: center;
-}
-
-#home .globe-card {
-    width: 200px;
-    height: 200px;
-    border-radius: 100px;
-    display: flex;
-    position: relative;
-    align-items: center;
-    justify-content: center;
-    color: #fff;
-    font-size: 28px;
-    font-weight: 600;
-    cursor: pointer;
-    text-shadow: 0 0 10px #000;
-    transition: all 0.5s;
-    overflow: hidden;
-    background: #d9d9d9;
-    box-shadow: 2px 2px 5px #000000, -2px -2px 5px #ffffff;
-}
-#home .globe-card:hover {
-    box-shadow: 5px 5px 15px #000000, -5px -5px 15px #ffffff;
-}
-#home .globe-card .g-c {
-    position: absolute;
-    z-index: 0;
-    left: -122px;
-    top: -10px;
-    width: 250px;
-    height: 100px;
-    transform: rotateZ(-45deg);
-    transition: all 0.5s;
-    background: linear-gradient(var(--primary), #d9d9d9);
-}
-#home .globe-card .txt {
-    z-index: 50;
-    font-weight: 600;
-}
-#home .globe-card:hover .txt {
-    color: var(--primary);
-    text-shadow: 0 0 10px #ffffff;
-}
-#home .globe-card:hover .g-c {
-    top: 9px;
-    left: -68px;
-    background: linear-gradient(var(--primary), #d9d9d9);
 }
 
 #register {
@@ -160,58 +53,8 @@ body {
 }
 
 /*  */
-.event-card {
-    background: #d9d9d9;
-    box-shadow: 2px 2px 5px #000000, -2px -2px 5px #ffffff;
-    padding: 10px;
-    align-items: center;
-    display: flex;
-    border-radius: 10px;
-}
-.event-card .date {
-    width: 90px;
-    height: 90px;
-    font-size: 24px;
-    font-weight: 600;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    padding: 10px;
-    text-align: center;
-    line-height: 20px;
-    border-radius: 5px;
-    background-color: #fff;
-}
-.event-card .date span {
-    font-size: 14px;
-    color: red;
-    font-weight: 500;
-}
-.event-card .title {
-    width: 100;
-    padding-left: 10px;
-    font-size: 18px;
-    text-transform: capitalize;
-    font-weight: 500;
-}
 
 /*  */
-.dashboard-details-card {
-    border-radius: 5px;
-    background-color: #ffffffa5;
-    padding: 10px;
-    font-size: 14px;
-    text-transform: capitalize;
-    line-height: 17px;
-    box-shadow: 2px 2px 10px #393939;
-    transition: all 0.2s;
-}
-.dashboard-details-card:hover {
-    background-color: #ffffffe1;
-}
-.dashboard-details-card span {
-    font-weight: 700;
-}
 
 /*  */
 .pages {

@@ -17,7 +17,7 @@
                         @csrf
                         <div class="input-group mb-3">
                             <span class="input-group-text @error('name') is-invalid @enderror">Event Name</span>
-                            <input name="name" type="text" class="form-control" placeholder="Enter the class name"
+                            <input name="name" type="text" class="form-control" placeholder="Enter the event name"
                                 value="{{ old('name') }}">
                             @error('name')
                                 <span class="invalid-feedback" role="alert">
@@ -26,8 +26,8 @@
                         </div>
                         <div class="input-group mb-3">
                             <span class="input-group-text @error('event_date') is-invalid @enderror">Event Date</span>
-                            <input name="event_date" type="date" class="form-control"
-                                placeholder="Enter the class start time" value="{{ old('event_date') }}">
+                            <input name="event_date" type="date" class="form-control" placeholder="Enter the event date"
+                                value="{{ old('event_date') }}">
                             @error('event_date')
                                 <span class="invalid-feedback" role="alert">
                                     <strong>{{ $message }}</strong></span>
@@ -36,7 +36,7 @@
                         <div class="input-group mb-3">
                             <span class="input-group-text @error('location') is-invalid @enderror">Location</span>
                             <input name="location" type="text" class="form-control"
-                                placeholder="Enter the class close time" value="{{ old('location') }}">
+                                placeholder="Enter the event location" value="{{ old('location') }}">
                             @error('location')
                                 <span class="invalid-feedback" role="alert">
                                     <strong>{{ $message }}</strong></span>
@@ -45,7 +45,7 @@
                         <div class="input-group mb-3">
                             <span class="input-group-text @error('description') is-invalid @enderror">Description</span>
                             <input name="description" type="text" class="form-control"
-                                placeholder="Enter the class close time" value="{{ old('description') }}">
+                                placeholder="Enter the event description" value="{{ old('description') }}">
                             @error('description')
                                 <span class="invalid-feedback" role="alert">
                                     <strong>{{ $message }}</strong></span>
@@ -54,7 +54,7 @@
                         <div class="input-group mb-3">
                             <span class="input-group-text @error('organizer') is-invalid @enderror">Organizer</span>
                             <input name="organizer" type="text" class="form-control"
-                                placeholder="Enter the class location"value="{{ old('organizer') }}">
+                                placeholder="Enter the event organizer name"value="{{ old('organizer') }}">
                             @error('organizer')
                                 <span class="invalid-feedback" role="alert">
                                     <strong>{{ $message }}</strong></span>
@@ -64,7 +64,7 @@
                         <div class="col-12 d-flex justify-content-end">
                             <a href="{{ route('admin-event-index') }}" type="button" class="btn btn-danger me-2">Go
                                 Back</a>
-                            <button type="submit" class="btn btn-success">Save New Class</button>
+                            <button type="submit" class="btn btn-success">Save New Event</button>
                         </div>
                     </form>
 
