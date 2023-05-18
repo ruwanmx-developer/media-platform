@@ -25,7 +25,7 @@
 
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 
-    <link rel="stylesheet" href="{{ asset('css/app.css') }}">
+    <link rel="stylesheet" href="{{ asset('css/style.css') }}">
 
     <style>
         .pageLoader {
@@ -70,6 +70,7 @@
             </div>
         @endif
         @yield('content')
+        @include('partials.footer')
     </div>
     <script>
         $(window).on('beforeunload', function() {

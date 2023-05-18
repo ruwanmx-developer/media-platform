@@ -1,4 +1,4 @@
-<nav class="navbar navbar-expand-lg bg-body-tertiary sticky-top">
+<nav class="navbar navbar-expand-lg sticky-top">
     <div class="container-fluid">
         <a class="navbar-brand" href="/"><img src="{{ asset('images/logo.png') }}" alt="">
             MediaMix</a>

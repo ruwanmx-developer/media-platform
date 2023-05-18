@@ -17,7 +17,7 @@
                         @if (count($events) == 0)
                             <div class="col-12">
                                 <div class="alert alert-light" role="alert">
-                                    There are no events to show. <a href="{{ route('company-job-add') }}"
+                                    There are no events to show. <a href="{{ route('admin-event-add') }}"
                                         class="alert-link">Click here to
                                         add</a>.
                                 </div>

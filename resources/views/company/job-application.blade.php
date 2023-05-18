@@ -11,7 +11,7 @@
                 @if (count($applications) == 0)
                     <div class="col-12">
                         <div class="alert alert-light" role="alert">
-                            There are no job vacancies to show.
+                            There are no applications for your job vacancies.
                         </div>
 
                     </div>

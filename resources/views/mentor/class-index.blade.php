@@ -17,7 +17,7 @@
                         @if (count($classes) == 0)
                             <div class="col-12">
                                 <div class="alert alert-light" role="alert">
-                                    There are no job vacancies to show. <a href="{{ route('company-job-add') }}"
+                                    There are no classes to show. <a href="{{ route('mentor-class-add') }}"
                                         class="alert-link">Click here to
                                         add</a>.
                                 </div>

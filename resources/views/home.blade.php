@@ -6,7 +6,7 @@
             <div class="container">
                 <div class="row">
                     <div class="col-12">
-                        <div class="title mb-2">Looking For A ?</div>
+                        <div class="title mb-4">Looking For A ?</div>
                     </div>
                     <div class="col-12 col-md-4  d-flex justify-content-start">
                         <a href="{{ route('feed') }}" class="no-link">
@@ -68,12 +68,20 @@
                         <div class="col-12">
                             <div class="s-title">Events</div>
                         </div>
+                        @if (count($events) == 0)
+                            <div class="event-card mt-5">
+                                <div class="title c">
+                                    There are no upcomming events
+                                </div>
+                            </div>
+                        @endif
+
                         @foreach ($events as $event)
                             <div class="col-3">@include('components.event.event-card')</div>
                         @endforeach
                     </div>
-                </div>
 
+                </div>
             </div>
         </section>
     </div>

@@ -14,9 +14,6 @@ class FeedController extends Controller
         if (!Auth::check()) {
             return redirect('/')->with('message', 'You have to login to use this function!');
         }
-        if (Auth::user()->role != 1) {
-            return redirect('/')->with('message', 'You have no access to this area!');
-        }
         $feeds = Feed::with('user')->get();
         return view('user.feed', ['feeds' => $feeds]);
     }

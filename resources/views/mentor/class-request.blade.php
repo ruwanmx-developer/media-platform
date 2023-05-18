@@ -10,7 +10,7 @@
                 @if (count($crequests) == 0)
                     <div class="col-12">
                         <div class="alert alert-light" role="alert">
-                            There are no class requests show.
+                            There are no requests for your classes.
                         </div>
                     </div>
                 @endif
