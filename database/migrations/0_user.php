@@ -16,6 +16,7 @@ return new class extends Migration
             $table->string('address', 300);
             $table->string('mobile', 10);
             $table->string('district', 50);
+            $table->string('image', 100);
             $table->string('description');
             $table->string('role');
             $table->string('state')->default(1);
@@ -33,6 +34,7 @@ return new class extends Migration
             'district' => 'Kalutara',
             'description' => 'Lorem ipsum dolor sit amet',
             'role' => '0',
+            'image' => 'mini_admin.jpg',
             'password' => bcrypt('admin123@'),
         ]);
 
@@ -44,6 +46,7 @@ return new class extends Migration
             'district' => 'New York',
             'description' => 'Lorem ipsum dolor sit amet',
             'role' => '1',
+            'image' => 'mini_user.jpg',
             'password' => bcrypt('admin123@'),
         ]);
 
@@ -55,6 +58,7 @@ return new class extends Migration
             'district' => 'New York',
             'description' => 'Lorem ipsum dolor sit amet',
             'role' => '2',
+            'image' => 'mini_mentor.jpg',
             'password' => bcrypt('admin123@'),
         ]);
 
@@ -66,6 +70,7 @@ return new class extends Migration
             'district' => 'New York',
             'description' => 'Lorem ipsum dolor sit amet',
             'role' => '3',
+            'image' => 'mini_company.jpg',
             'password' => bcrypt('admin123@'),
         ]);
     }

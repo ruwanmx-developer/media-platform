@@ -63,6 +63,8 @@ Route::get('/my-internships', [App\Http\Controllers\InternshipController::class,
 
 Route::get('/learn', [App\Http\Controllers\LearnController::class, 'learn'])->name('learn');
 
+Route::get('/counsil', [App\Http\Controllers\PagesController::class, 'counsil'])->name('counsil');
+
 Route::get('/profile', [App\Http\Controllers\PagesController::class, 'profile'])->name('profile');
 Route::get('/view-profile/{id}', [App\Http\Controllers\PagesController::class, 'view_profile'])->name('view-profile');
 

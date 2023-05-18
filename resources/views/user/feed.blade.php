@@ -24,8 +24,10 @@
                     <div class="col-4">
                         @if (Auth::user()->role != 1)
                             <div class="class-card" onclick="addComment({{ $feed->id }})">
-                            @else
+                            @elseif (Auth::user()->id == $feed->user->id)
                                 <div class="class-card" onclick="viewComment({{ $feed->id }})">
+                                @else
+                                    <div class="class-card">
                         @endif
 
                         @if ($user_comments != null)

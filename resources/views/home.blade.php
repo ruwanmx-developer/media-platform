@@ -51,7 +51,7 @@
                         </a>
                     </div>
                     <div class="col-12 col-md-4 d-flex justify-content-end">
-                        <a href="{{ route('quiz') }}" class="no-link">
+                        <a href="{{ route('counsil') }}" class="no-link">
                             <div class="globe-card">
                                 <div class="g-c g-c-6"></div>
                                 <div class="txt">Counseling</div>

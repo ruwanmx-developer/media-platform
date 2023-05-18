@@ -45,6 +45,15 @@ class PagesController extends Controller
         return view('user.learn');
     }
 
+    public function counsil()
+    {
+        if (!Auth::check()) {
+            return redirect('/')->with('message', 'You have to login to use this function!');
+        }
+        $mentors = User::where('role', '=', 2)->get();
+        return view('user.counselling', ['mentors' => $mentors]);
+    }
+
     public function event(Request $request)
     {
         if (!Auth::check()) {
