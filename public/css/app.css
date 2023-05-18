@@ -1,5 +1,11 @@
 @import url("https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800;900&display=swap");
 
+:root {
+    --primary: #138dd0;
+    --fade: #ffffffab;
+    --unfade: #ffffff;
+}
+
 * {
     font-family: "Poppins", sans-serif !important;
 }
@@ -44,6 +50,7 @@ body {
     text-transform: uppercase;
     font-weight: 600;
     transition: all 0.2s;
+    box-shadow: 2px 2px 5px #000;
 }
 .btn:hover {
     box-shadow: 2px 2px 5px #000;
@@ -68,6 +75,10 @@ body {
     min-height: calc(75vh - 56px);
     display: flex;
     align-items: center;
+}
+#home .section-2 .s-title {
+    color: #fff;
+    font-size: 28px;
 }
 #home .section-1 .title {
     font-size: 60px;
@@ -100,35 +111,27 @@ body {
 }
 #home .globe-card .g-c {
     position: absolute;
-    z-index: -10;
+    z-index: 0;
     left: -122px;
     top: -10px;
     width: 250px;
     height: 100px;
     transform: rotateZ(-45deg);
     transition: all 0.5s;
+    background: linear-gradient(var(--primary), #d9d9d9);
+}
+#home .globe-card .txt {
+    z-index: 50;
+    font-weight: 600;
+}
+#home .globe-card:hover .txt {
+    color: var(--primary);
+    text-shadow: 0 0 10px #ffffff;
 }
 #home .globe-card:hover .g-c {
     top: 9px;
     left: -68px;
-}
-#home .globe-card .g-c.g-c-1 {
-    background-color: green;
-}
-#home .globe-card .g-c.g-c-2 {
-    background-color: rgb(0, 100, 128);
-}
-#home .globe-card .g-c.g-c-3 {
-    background-color: rgb(17, 0, 128);
-}
-#home .globe-card .g-c.g-c-4 {
-    background-color: rgb(119, 0, 128);
-}
-#home .globe-card .g-c.g-c-5 {
-    background-color: rgb(128, 0, 11);
-}
-#home .globe-card .g-c.g-c-6 {
-    background-color: rgb(128, 115, 0);
+    background: linear-gradient(var(--primary), #d9d9d9);
 }
 
 #register {
@@ -175,13 +178,14 @@ body {
     justify-content: center;
     padding: 10px;
     text-align: center;
+    line-height: 20px;
     border-radius: 5px;
     background-color: #fff;
 }
 .event-card .date span {
     font-size: 14px;
     color: red;
-    font-weight: 400;
+    font-weight: 500;
 }
 .event-card .title {
     width: 100;
@@ -228,7 +232,7 @@ body {
 /*  */
 .class-card {
     border-radius: 5px;
-    background-color: #ffffffa5;
+    background-color: var(--fade);
     padding: 10px;
     height: 100%;
     backdrop-filter: blur(5px);
@@ -237,7 +241,7 @@ body {
     cursor: pointer;
 }
 .class-card:hover {
-    background-color: #ffffffd9;
+    background-color: var(--unfade);
     box-shadow: 2px 2px 15px #000000, 2px 2px 15px #000000;
 }
 .class-card .name {

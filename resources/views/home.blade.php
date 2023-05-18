@@ -12,7 +12,7 @@
                         <a href="{{ route('feed') }}" class="no-link">
                             <div class="globe-card">
                                 <div class="g-c g-c-1"></div>
-                                Feed
+                                <div class="txt">Feed</div>
                             </div>
                         </a>
                     </div>
@@ -20,7 +20,7 @@
                         <a href="{{ route('internship') }}" class="no-link">
                             <div class="globe-card">
                                 <div class="g-c g-c-2"></div>
-                                Internship
+                                <div class="txt">Internship</div>
                             </div>
                         </a>
                     </div>
@@ -28,7 +28,7 @@
                         <a href="{{ route('mentor') }}" class="no-link">
                             <div class="globe-card">
                                 <div class="g-c g-c-3"></div>
-                                Mentor
+                                <div class="txt">Mentor</div>
                             </div>
                         </a>
                     </div>
@@ -38,7 +38,7 @@
                         <a href="{{ route('learn') }}" class="no-link">
                             <div class="globe-card">
                                 <div class="g-c g-c-4"></div>
-                                Learn
+                                <div class="txt">Learn</div>
                             </div>
                         </a>
                     </div>
@@ -46,7 +46,7 @@
                         <a href="{{ route('quiz') }}" class="no-link">
                             <div class="globe-card">
                                 <div class="g-c g-c-5"></div>
-                                Discussion
+                                <div class="txt">Discussion</div>
                             </div>
                         </a>
                     </div>
@@ -54,7 +54,7 @@
                         <a href="{{ route('quiz') }}" class="no-link">
                             <div class="globe-card">
                                 <div class="g-c g-c-6"></div>
-                                Counseling
+                                <div class="txt">Counseling</div>
                             </div>
                         </a>
                     </div>
@@ -69,8 +69,6 @@
                             <div class="s-title">Events</div>
                         </div>
                         @foreach ($events as $event)
-                            <div class="col-3">@include('components.event.event-card')</div>
-                            <div class="col-3">@include('components.event.event-card')</div>
                             <div class="col-3">@include('components.event.event-card')</div>
                         @endforeach
                     </div>

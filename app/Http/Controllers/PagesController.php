@@ -20,7 +20,7 @@ class PagesController extends Controller
         } else { // unregisterd user
         }
         $events = Event::orderBy('created_at', 'desc')
-            ->take(3)
+            ->take(4)
             ->get();
 
         return view('home', ['events' => $events]);
