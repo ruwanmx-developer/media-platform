@@ -64,7 +64,7 @@
         <section class="section-2">
             <div class="event-wrap">
                 <div class="container-fluid">
-                    <div class="row">
+                    <div class="row gy-3 gx-3 ">
                         <div class="col-12">
                             <div class="s-title">Events</div>
                         </div>
@@ -73,7 +73,6 @@
                             <div class="col-3">@include('components.event.event-card')</div>
                             <div class="col-3">@include('components.event.event-card')</div>
                         @endforeach
-
                     </div>
                 </div>
 

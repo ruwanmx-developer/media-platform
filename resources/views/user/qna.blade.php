@@ -1,7 +1,7 @@
 @extends('layouts.app')
 
 @section('content')
-    <div id="quiz" class="pages">
+    <div id="qna" class="pages">
         <div class="container">
             <div class="row mb-3">
                 <div class="col-12 text-center">

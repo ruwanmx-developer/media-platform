@@ -13,12 +13,18 @@
                         <li class="nav-item">
                             <a class="nav-link" href="{{ route('company-job-index') }}">Job Management</a>
                         </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="{{ route('quiz') }}">Discussion</a>
+                        </li>
                     @elseif (Auth::user()->role == 2)
                         <li class="nav-item">
                             <a class="nav-link" href="{{ route('mentor-class-index') }}">Class Management</a>
                         </li>
                         <li class="nav-item">
                             <a class="nav-link" href="{{ route('mentor-tutorial-index') }}">Tutorial Management</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="{{ route('quiz') }}">Discussion</a>
                         </li>
                     @elseif (Auth::user()->role == 1)
                         <li class="nav-item dropdown">
@@ -40,7 +46,8 @@
                             </a>
                             <ul class="dropdown-menu">
                                 <li><a class="dropdown-item" href="{{ route('internship') }}">Go To Internship</a></li>
-                                <li><a class="dropdown-item" href="{{ route('my-internships') }}">View Your Requests</a>
+                                <li><a class="dropdown-item" href="{{ route('my-internships') }}">View Your
+                                        Requests</a>
                                 </li>
                             </ul>
                         </li>

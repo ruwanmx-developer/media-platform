@@ -1,7 +1,7 @@
 @extends('layouts.app')
 
 @section('content')
-    <div id="add-feed" class="pages">
+    <div id="feed" class="pages">
         <div class="container">
             <div class="row mb-3">
                 <div class="col-12">
