@@ -4,11 +4,11 @@
     <div id="home">
         <section class="section-1">
             <div class="container">
-                <div class="row">
+                <div class="row ">
                     <div class="col-12">
                         <div class="title mb-4">Looking For A ?</div>
                     </div>
-                    <div class="col-12 col-md-4  d-flex justify-content-start">
+                    <div class="col-12 col-md-3  d-flex justify-content-end">
                         <a href="{{ route('feed') }}" class="no-link">
                             <div class="globe-card">
                                 <div class="g-c g-c-1"></div>
@@ -16,7 +16,7 @@
                             </div>
                         </a>
                     </div>
-                    <div class="col-12 col-md-4 d-flex justify-content-start ">
+                    <div class="col-12 col-md-3 d-flex justify-content-end ">
                         <a href="{{ route('internship') }}" class="no-link">
                             <div class="globe-card">
                                 <div class="g-c g-c-2"></div>
@@ -24,7 +24,7 @@
                             </div>
                         </a>
                     </div>
-                    <div class="col-12 col-md-4  d-flex justify-content-start ">
+                    <div class="col-12 col-md-3  d-flex justify-content-end ">
                         <a href="{{ route('mentor') }}" class="no-link">
                             <div class="globe-card">
                                 <div class="g-c g-c-3"></div>
@@ -34,7 +34,8 @@
                     </div>
                 </div>
                 <div class="row mt-1">
-                    <div class="col-12 col-md-4 d-flex justify-content-end">
+                    <div class="col-3"></div>
+                    <div class="col-12 col-md-3 d-flex justify-content-start">
                         <a href="{{ route('learn') }}" class="no-link">
                             <div class="globe-card">
                                 <div class="g-c g-c-4"></div>
@@ -42,7 +43,7 @@
                             </div>
                         </a>
                     </div>
-                    <div class="col-12 col-md-4 d-flex justify-content-end">
+                    <div class="col-12 col-md-3 d-flex justify-content-start">
                         <a href="{{ route('quiz') }}" class="no-link">
                             <div class="globe-card">
                                 <div class="g-c g-c-5"></div>
@@ -50,7 +51,7 @@
                             </div>
                         </a>
                     </div>
-                    <div class="col-12 col-md-4 d-flex justify-content-end">
+                    <div class="col-12 col-md-3 d-flex justify-content-start">
                         <a href="{{ route('counsil') }}" class="no-link">
                             <div class="globe-card">
                                 <div class="g-c g-c-6"></div>

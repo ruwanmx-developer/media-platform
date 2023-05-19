@@ -79,8 +79,8 @@ body {
 }
 
 #home .globe-card {
-    width: 200px;
-    height: 200px;
+    width: 150px;
+    height: 150px;
     border-radius: 100px;
     display: flex;
     position: relative;
@@ -116,7 +116,7 @@ body {
 }
 #home .globe-card .txt {
     z-index: 50;
-    font-size: 28px;
+    font-size: 22px;
     text-shadow: 0 0 10px #000000;
 
     font-weight: 600;
@@ -149,12 +149,12 @@ body {
     border-radius: 10px;
 }
 .event-card.x {
-    min-height: 110px;
+    min-height: 90px;
     text-align: center;
 }
 .event-card .date {
-    width: 90px;
-    height: 90px;
+    width: 70px;
+    height: 70px;
     font-size: 24px;
     font-weight: 600;
     display: flex;
@@ -167,7 +167,7 @@ body {
     background-color: var(--fade);
 }
 .event-card .date span {
-    font-size: 14px;
+    font-size: 13px;
     color: red;
     font-weight: 500;
 }

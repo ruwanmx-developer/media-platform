@@ -31,7 +31,7 @@
                                 <img src="{{ asset('storage/uploads/feeds/' . $post->source_url) }} " alt="">
                             </div>
                         @endif
-                        <p class="lead mb-4">{{ $post->description }}</p>
+                        <p class="lead mb-2">{{ $post->description }}</p>
                         @foreach ($post->comments as $comment)
                             <div class="col-12 mt-1">
                                 @php

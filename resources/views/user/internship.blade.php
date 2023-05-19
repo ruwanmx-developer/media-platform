@@ -9,8 +9,8 @@
                         <img class="d-block mx-auto mb-1" src="{{ asset('images/logo.png') }}" alt="" width="35">
                         <h3 class="fw-bold p-0 m-0">Internship Programe</h3>
                         <h6 class="fw-bold ">By Media Mix</h6>
-                        <div class="col-lg-8 mx-auto">
-                            <p class="lead mb-4">Welcome to our internship program! We offer a unique opportunity for
+                        <div class="col-lg-10 mx-auto">
+                            <p class="lead mb-2">Welcome to our internship program! We offer a unique opportunity for
                                 students and recent graduates to gain hands-on experience and develop their skills in a
                                 dynamic and challenging environment. As an intern, you'll work alongside experienced
                                 professionals on real-world projects, contributing to the success of our organization while

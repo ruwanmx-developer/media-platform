@@ -9,8 +9,8 @@
                         <img class="d-block mx-auto mb-1" src="{{ asset('images/logo.png') }}" alt="" width="35">
                         <h3 class="fw-bold p-0 m-0">Feed Programe</h3>
                         <h6 class="fw-bold ">By Media Mix</h6>
-                        <div class="col-lg-8 mx-auto">
-                            <p class="lead mb-4">The feed page of a website is the hub of all the latest updates and
+                        <div class="col-lg-10 mx-auto">
+                            <p class="lead mb-2">The feed page of a website is the hub of all the latest updates and
                                 activities. It is a dynamic platform that presents a user with a stream of constantly
                                 updated content, including posts, articles, news, and events. The feed page is designed to
                                 keep the user engaged by providing them with personalized and relevant content based on
@@ -80,43 +80,41 @@
 
         function addComment(x) {
             let cmt = document.getElementById("ucomment_" + x).value;
-            console.log(cmt)
-            if (cmt != "") {
-                Swal.fire({
-                    title: 'Already Commented',
-                    text: cmt,
-                    icon: 'warning',
-                    confirmButtonText: 'OK'
-                })
-            } else {
-                Swal.fire({
-                    title: "Add Comment",
-                    icon: 'info',
-                    input: 'text',
-                    showCancelButton: true,
-                    confirmButtonColor: '#3085d6',
-                    cancelButtonColor: '#d33',
-                    confirmButtonText: 'Save Comment',
-                    preConfirm: (login) => {
-                        const xhr = new XMLHttpRequest();
-                        const url = '/add-comment/' + x;
-                        const formData = new FormData();
-                        formData.append('feed_id', x);
-                        formData.append('comment', login);
-                        xhr.open('POST', url);
-                        xhr.setRequestHeader('X-CSRF-TOKEN', $('meta[name="csrf-token"]').attr('content'));
-                        xhr.onreadystatechange = function() {
-                            if (this.readyState === 4 && this.status === 200) {
-                                var response = JSON.parse(this.responseText);
-                                if (response.added == true) {
-                                    location.reload();
-                                }
+
+            Swal.fire({
+                title: "Add Comment",
+                icon: 'info',
+                input: 'text',
+                showCancelButton: true,
+                confirmButtonColor: '#3085d6',
+                cancelButtonColor: '#d33',
+                showDenyButton: true,
+                denyButtonColor: '#3085d6',
+                denyButtonText: 'View Feed',
+                confirmButtonText: 'Save Comment',
+                preConfirm: (login) => {
+                    const xhr = new XMLHttpRequest();
+                    const url = '/add-comment/' + x;
+                    const formData = new FormData();
+                    formData.append('feed_id', x);
+                    formData.append('comment', login);
+                    xhr.open('POST', url);
+                    xhr.setRequestHeader('X-CSRF-TOKEN', $('meta[name="csrf-token"]').attr('content'));
+                    xhr.onreadystatechange = function() {
+                        if (this.readyState === 4 && this.status === 200) {
+                            var response = JSON.parse(this.responseText);
+                            if (response.added == true) {
+                                location.reload();
                             }
-                        };
-                        xhr.send(formData);
-                    },
-                })
-            }
+                        }
+                    };
+                    xhr.send(formData);
+                },
+            }).then((result) => {
+                if (result.isDenied) {
+                    document.location.href = "view-comment/" + x;
+                }
+            })
         }
     </script>
 @endsection

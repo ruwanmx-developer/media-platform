@@ -43,15 +43,12 @@ class FeedController extends Controller
         return view('user.my-feeds', ['feeds' => $feeds]);
     }
 
-    public function view_comment()
+    public function view_comment(Request $request)
     {
         if (!Auth::check()) {
             return redirect('/')->with('message', 'You have to login to use this function!');
         }
-        if (Auth::user()->role != 1) {
-            return redirect('/')->with('message', 'You have no access to this area!');
-        }
-        $post = Feed::with('user')->where('user_id', '=', Auth::user()->id)->with('comments', 'comments.user')->first();
+        $post = Feed::with('user')->where('id', '=', $request->id)->with('comments', 'comments.user')->first();
         return view('user.feed-comment', ['post' => $post]);
     }
 

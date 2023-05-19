@@ -9,8 +9,8 @@
                         <img class="d-block mx-auto mb-1" src="{{ asset('images/logo.png') }}" alt="" width="35">
                         <h3 class="fw-bold p-0 m-0">Events Programe</h3>
                         <h6 class="fw-bold ">By Media Mix</h6>
-                        <div class="col-lg-8 mx-auto">
-                            <p class="lead mb-4">The feed page of a website is the hub of all the latest updates and
+                        <div class="col-lg-10 mx-auto">
+                            <p class="lead mb-2">The feed page of a website is the hub of all the latest updates and
                                 activities. It is a dynamic platform that presents a user with a stream of constantly
                                 updated content, including posts, articles, news, and events. The feed page is designed to
                                 keep the user engaged by providing them with personalized and relevant content based on
