@@ -36,14 +36,20 @@
                         @endif
                         <div class="row video-det">
                             <div class="col-12">
-                                <div class="name">{{ $feed->user->name }}</div>
+                                <div class="row">
+                                    <div class="col-2">
+                                        <div class="card-profile-img small">
+                                            <img src="{{ asset('storage/uploads/profile/' . $feed->user->image) }} ">
+                                        </div>
+                                    </div>
+                                    <div class="col-10 d-flex align-items-center">
+                                        <div class="name">{{ $feed->user->name }}</div>
+                                    </div>
+                                </div>
                             </div>
                             <div class="col-10">
                                 <div class="video-by feed-desc">By : {{ $feed->description }}</div>
                             </div>
-                            {{-- <div class="col-2 d-flex justify-content-end">
-                                    <i class="bi bi-hand-thumbs-up-fill liked"></i>
-                                </div> --}}
                         </div>
                         @php
                             $isVideo = substr($feed->source_url, -4) === '.mp4';

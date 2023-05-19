@@ -67,6 +67,8 @@ Route::get('/counsil', [App\Http\Controllers\PagesController::class, 'counsil'])
 
 Route::get('/profile', [App\Http\Controllers\PagesController::class, 'profile'])->name('profile');
 Route::get('/view-profile/{id}', [App\Http\Controllers\PagesController::class, 'view_profile'])->name('view-profile');
+Route::get('/edit-profile', [App\Http\Controllers\PagesController::class, 'edit_profile'])->name('edit-profile');
+Route::post('/user-profile-update', [App\Http\Controllers\PagesController::class, 'update'])->name('user-profile-update');
 
 Route::get('/feed', [App\Http\Controllers\FeedController::class, 'feed'])->name('feed');
 Route::get('/add-feed', [App\Http\Controllers\FeedController::class, 'add_new_feed'])->name('add-feed');

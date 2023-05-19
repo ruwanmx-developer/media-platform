@@ -15,6 +15,7 @@ use App\Models\User;
 use App\Models\Vacancy;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Validator;
 
 class PagesController extends Controller
 {
@@ -70,6 +71,15 @@ class PagesController extends Controller
         }
         $events = Event::all();
         return view('user.events', ['events' => $events]);
+    }
+
+    public function edit_profile(Request $request)
+    {
+        if (!Auth::check()) {
+            return redirect('/')->with('message', 'You have to login to use this function!');
+        }
+        $user = User::find(Auth::user()->id);
+        return view('user.profile-edit', ['user' => $user]);
     }
 
     public function profile(Request $request)
@@ -134,5 +144,38 @@ class PagesController extends Controller
             ->with('internship_count', $internship_count)
             ->with('tuition_count', $tuition_count)
             ->with('tutorial_count', $tutorial_count);
+    }
+
+    public function update(Request $request)
+    {
+        $validator = Validator::make($request->all(), [
+            'name' => ['required', 'string', 'max:255'],
+            'address' => ['required', 'string',],
+            'mobile' => ['required', 'string', 'min:10', 'max:10'],
+            'district' => ['required', 'string'],
+            'description' => ['required', 'string'],
+        ]);
+
+        if ($validator->fails()) {
+            return redirect()->route('edit-profile', ['id' => $request->id])
+                ->withErrors($validator)
+                ->withInput();
+        }
+
+        $validatedData = $validator->validated();
+
+        $user = User::where('id', '=', $request->id)->first();
+        $user->name = $validatedData['name'];
+        $user->address = $validatedData['address'];
+        $user->mobile = $validatedData['mobile'];
+        $user->district = $validatedData['district'];
+        $user->description = $validatedData['description'];
+
+        try {
+            $user->save();
+            return redirect('profile')->with('message', 'Your process was successful!');
+        } catch (\Exception $e) {
+            return redirect('profile')->with('message', 'Your process was faild! Try Again!');
+        }
     }
 }

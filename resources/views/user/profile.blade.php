@@ -37,7 +37,7 @@
                         @endphp
                         <div class="title"><span>Account Type : </span>{{ $role }} Account</div>
                         <div class="col-12 d-flex justify-content-end">
-                            <a href="{{ route('mentor-class-index') }}" type="button" class="btn btn-primary ">Update
+                            <a href="{{ route('edit-profile') }}" type="button" class="btn btn-primary ">Update
                                 Profile</a>
 
                         </div>
