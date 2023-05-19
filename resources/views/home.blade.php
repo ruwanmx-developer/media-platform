@@ -28,7 +28,7 @@
                         <a href="{{ route('mentor') }}" class="no-link">
                             <div class="globe-card">
                                 <div class="g-c g-c-3"></div>
-                                <div class="txt">Mentor</div>
+                                <div class="txt">Class</div>
                             </div>
                         </a>
                     </div>

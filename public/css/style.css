@@ -185,7 +185,7 @@ body {
 
 /* dashboard */
 #dashboard {
-    min-height: calc(100vh - 54px - 145px);
+    min-height: calc(100vh - 54px - 157px);
     padding-top: 30px;
 }
 #dashboard form {
@@ -333,7 +333,7 @@ body {
 
 /* pages */
 .pages {
-    min-height: calc(100vh - 54px - 145px);
+    min-height: calc(100vh - 54px - 157px);
     padding-top: 30px;
 }
 
@@ -420,7 +420,7 @@ body {
 
 /*  */
 .login {
-    min-height: calc(100vh - 56px - 145px);
+    min-height: calc(100vh - 56px - 157px);
     display: flex;
     align-items: center;
     justify-content: center;
@@ -428,7 +428,7 @@ body {
 
 /*  */
 #register {
-    min-height: calc(100vh - 56px - 145px);
+    min-height: calc(100vh - 56px - 157px);
 }
 #register .section-1 {
     min-height: calc(75vh - 56px);

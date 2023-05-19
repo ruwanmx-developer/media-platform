@@ -54,10 +54,10 @@
                         <li class="nav-item dropdown">
                             <a class="nav-link dropdown-toggle" role="button" data-bs-toggle="dropdown"
                                 aria-expanded="false">
-                                Mentor
+                                Class
                             </a>
                             <ul class="dropdown-menu">
-                                <li><a class="dropdown-item" href="{{ route('mentor') }}">Go To Mentor</a></li>
+                                <li><a class="dropdown-item" href="{{ route('mentor') }}">Go To Classes</a></li>
                                 <li><a class="dropdown-item" href="{{ route('my-mentors') }}">View Your Requests</a>
                                 </li>
                             </ul>

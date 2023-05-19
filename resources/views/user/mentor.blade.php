@@ -7,7 +7,7 @@
                 <div class="col-12 text-center">
                     <div class="desc-wrap">
                         <img class="d-block mx-auto mb-1" src="{{ asset('images/logo.png') }}" alt="" width="35">
-                        <h3 class="fw-bold p-0 m-0">Mentor Programe</h3>
+                        <h3 class="fw-bold p-0 m-0">Class Programe</h3>
                         <h6 class="fw-bold ">By Media Mix</h6>
                         <div class="col-lg-10 mx-auto">
                             <p class="lead mb-2">Unlock your potential with our expertly crafted classes. From beginner to
