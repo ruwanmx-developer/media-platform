@@ -21,7 +21,16 @@
                 @foreach ($classes as $class)
                     <div class="col-4">
                         <div class="class-card">
-                            <div class="name">{{ $class->class_name }}</div>
+                            <div class="row">
+                                <div class="col-2">
+                                    <div class="card-profile-img">
+                                        <img src="{{ asset('storage/uploads/profile/' . $class->user->image) }} ">
+                                    </div>
+                                </div>
+                                <div class="col-10 d-flex align-items-center">
+                                    <div class="name">{{ $class->class_name }}</div>
+                                </div>
+                            </div>
                             <div class="row">
                                 <div class="col-6">
                                     <div class="time">From : <span>{{ $class->time_from }}</span></div>

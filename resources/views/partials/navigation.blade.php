@@ -69,7 +69,7 @@
                             <a class="nav-link" href="{{ route('quiz') }}">Discussion</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="#">Counseling</a>
+                            <a class="nav-link" href="{{ route('counsil') }}">Counseling</a>
                         </li>
                     @elseif (Auth::user()->role == 0)
                         <li class="nav-item">
@@ -88,19 +88,7 @@
                             <a class="nav-link" href="{{ route('quiz') }}">Discussion</a>
                         </li>
                     @endif
-                @else
-                    <li class="nav-item">
-                        <a class="nav-link" href="#">Home</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="#">About Us</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="#">Services</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="#">Events</a>
-                    </li>
+
                 @endif
 
             </ul>

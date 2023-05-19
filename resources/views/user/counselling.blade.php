@@ -21,7 +21,17 @@
                 @foreach ($mentors as $mentor)
                     <div class="col-4">
                         <div class="class-card">
-                            <div class="name">{{ $mentor->name }}</div>
+                            <div class="row">
+                                <div class="col-2">
+                                    <div class="card-profile-img">
+                                        <img src="{{ asset('storage/uploads/profile/' . $mentor->image) }} ">
+                                    </div>
+                                </div>
+                                <div class="col-10 d-flex align-items-center">
+                                    <div class="name">{{ $mentor->name }}</div>
+                                </div>
+                            </div>
+
                             <div class="location">Email : <span>{{ $mentor->email }}</span></div>
                             <div class="location">District : <span>{{ $mentor->district }}</span></div>
                         </div>

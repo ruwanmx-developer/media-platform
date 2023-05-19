@@ -449,3 +449,17 @@ body {
 .profile-img {
     width: 200px;
 }
+.card-profile-img {
+    width: 60px;
+    height: 60px;
+    margin-bottom: 10px;
+}
+.card-profile-img.small {
+    width: 40px;
+    height: 40px;
+}
+.card-profile-img img {
+    width: 100%;
+    height: auto;
+    border-radius: 100%;
+}

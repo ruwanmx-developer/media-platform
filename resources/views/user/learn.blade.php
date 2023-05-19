@@ -23,8 +23,15 @@
                         <div class="class-card">
 
                             <div class="row video-det">
-                                <div class="col-12">
-                                    <div class="name">{{ $tutorial->title }}</div>
+                                <div class="row">
+                                    <div class="col-2">
+                                        <div class="card-profile-img small">
+                                            <img src="{{ asset('storage/uploads/profile/' . $tutorial->user->image) }} ">
+                                        </div>
+                                    </div>
+                                    <div class="col-10 d-flex align-items-center">
+                                        <div class="name">{{ $tutorial->title }}</div>
+                                    </div>
                                 </div>
                                 <div class="col-8">
                                     <div class="video-by">By : {{ $tutorial->user->name }}</div>
